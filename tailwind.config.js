@@ -1,16 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: "#4F46E5",
-        secondary: "#F97316",
-        dark: "#1A202C",
-        light: "#F7FAFC",
+        primary: "#1E1E1E", // Основной темный фон
+        secondary: "#72C95E", // Яркий зеленый акцент
+        light: "#FFFFFF", // Белый
+        gray: {
+          dark: "#333333",
+          medium: "#4F4F4F",
+          light: "#828282",
+        },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        prosto: ['"Prosto One"', "cursive"],
+        evolventa: ['"Evolventa"', "sans-serif"],
       },
     },
   },
