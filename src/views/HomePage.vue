@@ -1,11 +1,11 @@
-<template>
-  <HeroSection />
-</template>
-
 <script setup lang="ts">
 import HeroSection from "../components/HeroSection.vue";
+import About from "../components/About.vue";
 </script>
 
-<style scoped>
-/* Styles for HomePage component */
-</style>
+<template>
+  <HeroSection />
+  <About />
+</template>
+
+<style scoped></style>
