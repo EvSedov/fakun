@@ -5,4 +5,9 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
   base: "/fakun/",
   plugins: [vue()],
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 });
