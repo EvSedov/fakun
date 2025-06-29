@@ -1,9 +1,9 @@
 <template>
-  <section class="w-full bg-[#2A2A2A] py-16 px-4">
+  <section class="w-full bg-[#2A2A2A] py-7.5 px-4">
     <div class="max-w-6xl mx-auto flex flex-col gap-6">
       <!-- Заголовок -->
       <h2
-        class="font-prosto text-[24px] text-[#72C95E] text-center mb-4"
+        class="font-prosto text-[24px] text-[#72C95E] text-center mb-5"
         style="line-height: 1.23"
       >
         О НАС
