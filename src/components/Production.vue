@@ -1,3 +1,8 @@
+<script setup>
+import spainFlag from "@/assets/images/flag-spain.svg";
+import productionGif from "@/assets/images/production-process.gif";
+</script>
+
 <template>
   <!-- {{ block_1 }} Контейнер секции -->
   <section class="bg-[#2A2A2A] py-7.5">
@@ -81,12 +86,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-// {{ edit_1 }} Импортируем изображения как переменные
-import spainFlag from "@/assets/images/flag-spain.svg";
-import productionGif from "@/assets/images/production-process.gif";
-</script>
 
 <style scoped>
 .font-evolventa {
