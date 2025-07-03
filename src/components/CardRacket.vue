@@ -14,7 +14,9 @@
     <div
       class="bg-[#2A2A2A] p-5 flex flex-col gap-[15px] rounded-b-[10px] h-[240px]"
     >
-      <h3 class="text-white font-prosto text-[20px] leading-[1.235em]">
+      <h3
+        class="text-white font-prosto text-[20px] leading-[1.235em] hover:text-[#72C95E]"
+      >
         {{ racket.name }}
       </h3>
       <!-- Цветовые кружки -->

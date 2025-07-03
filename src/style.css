@@ -1,6 +1,13 @@
 @import "/public/fonts/evolventa/evolventa.css";
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Prosto One";
+  src: local("Prosto One"), url("/public/fonts/ProstoOne/ProstoOne-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme {
   --font-evolventa: "Evolventa", "sans-serif";
   --font-prosto: "Prosto One", "cursive";
