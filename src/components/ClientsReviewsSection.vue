@@ -30,7 +30,7 @@ const reviews = ref([
       class="review-content flex flex-col items-center gap-5 py-25 max-w-[1152px] mx-auto"
     >
       <h2
-        class="text-[#72C95E] text-center font-prosto-one text-2xl leading-[1.235em]"
+        class="text-[#72C95E] text-center font-prosto text-2xl leading-[1.235em]"
       >
         ОТЗЫВЫ НАШИХ КЛИЕНТОВ
       </h2>

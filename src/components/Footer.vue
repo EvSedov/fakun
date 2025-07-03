@@ -137,9 +137,4 @@ import telegram from "@/assets/images/telegram.svg";
 import instagram from "@/assets/images/instagram.svg";
 </script>
 
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Evolventa:wght@400;700&display=swap");
-.font-evolventa {
-  font-family: "Evolventa", sans-serif;
-}
-</style>
+<style scoped></style>

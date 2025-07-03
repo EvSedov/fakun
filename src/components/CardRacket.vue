@@ -14,7 +14,7 @@
     <div
       class="bg-[#2A2A2A] p-5 flex flex-col gap-[15px] rounded-b-[10px] h-[240px]"
     >
-      <h3 class="text-white font-prostoOne text-[20px] leading-[1.235em]">
+      <h3 class="text-white font-prosto text-[20px] leading-[1.235em]">
         {{ racket.name }}
       </h3>
       <!-- Цветовые кружки -->
@@ -40,12 +40,12 @@
         </a>
       </div>
       <!-- Цена -->
-      <p class="text-[#72C95E] font-prostoOne text-[20px] leading-[1.235em]">
+      <p class="text-[#72C95E] font-prosto text-[20px] leading-[1.235em]">
         {{ racket.price }} ₽
       </p>
       <!-- Кнопка "В корзину" -->
       <button
-        class="w-29.5 px-[20px] py-[10px] rounded-[5px] border border-[#72C95E] text-[#72C95E] font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-white hover:border-[#72C95E] transition-colors duration-200"
+        class="w-29.5 px-[15px] py-[10px] rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black hover:border-[#72C95E] transition-colors duration-200"
       >
         В корзину
       </button>

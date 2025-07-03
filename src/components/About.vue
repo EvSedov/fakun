@@ -69,12 +69,4 @@
 // About section script (если потребуется)
 </script>
 
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Evolventa:wght@400;700&display=swap");
-.font-evolventa {
-  font-family: "Evolventa", sans-serif;
-}
-.font-prosto {
-  font-family: "Prosto One", cursive;
-}
-</style>
+<style scoped></style>

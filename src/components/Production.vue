@@ -87,8 +87,4 @@ import productionGif from "@/assets/images/production-process.gif";
   </section>
 </template>
 
-<style scoped>
-.font-evolventa {
-  font-family: "Evolventa", Arial, sans-serif;
-}
-</style>
+<style scoped></style>

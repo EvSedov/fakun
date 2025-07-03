@@ -1,1 +1,20 @@
+@import "/public/fonts/evolventa/evolventa.css";
 @import "tailwindcss";
+
+@theme {
+  --font-evolventa: "Evolventa", "sans-serif";
+  --font-prosto: "Prosto One", "cursive";
+}
+
+@layer components {
+  * {
+    font-family: var(--font-evolventa);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-prosto);
+  }
+}

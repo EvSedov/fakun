@@ -11,8 +11,8 @@
       preload="auto"
       class="absolute inset-0 w-full h-full object-cover z-0"
     >
-      <source src="/assets/images/hero-background.webm" type="video/webm" />
-      <source src="/assets/images/hero-background.mp4" type="video/mp4" />
+      <source src="/images/hero-background.webm" type="video/webm" />
+      <source src="/images/hero-background.mp4" type="video/mp4" />
       Ваш браузер не поддерживает видео фон.
     </video>
     <!-- Overlay -->
@@ -26,12 +26,12 @@
       <!-- Логотип -->
       <div class="flex justify-center items-end mb-6">
         <img
-          src="/assets/images/logo-part1.png"
+          src="/images/logo-part1.png"
           alt="Fakun Logo Part 1"
           class="h-[168px] w-[141px] filter-white"
         />
         <img
-          src="/assets/images/logo-part2.png"
+          src="/images/logo-part2.png"
           alt="Fakun Logo Part 2"
           class="h-[65px] w-[581px] ml-[26px] mb-[20px] filter-white"
         />
