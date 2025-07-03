@@ -3,6 +3,7 @@ import { ref } from "vue";
 import reviewSergey from "../assets/images/review-sergey.png";
 import reviewNatasha from "../assets/images/review-natasha.png";
 import reviewKseniya from "../assets/images/review-kseniya.png";
+import ReviewCard from "./ReviewCard.vue";
 
 const reviews = ref([
   {
@@ -34,33 +35,13 @@ const reviews = ref([
     <div
       class="flex flex-col md:flex-row md:flex-wrap justify-center items-center md:items-start gap-10 w-full max-w-[1152px]"
     >
-      <div
+      <ReviewCard
         v-for="(review, index) in reviews"
         :key="index"
-        class="w-[350px] h-auto flex flex-col items-center justify-center gap-2.5 p-2.5 border-t-[#72C95E] rounded-t-[10px] border-t-4 bg-[#2A2A2A]"
-      >
-        <p
-          class="text-[#72C95E] text-left font-evolventa-bold text-base leading-[1.33em] w-full"
-        >
-          {{ review.name }}
-        </p>
-        <p
-          class="text-[#FFFFFF] text-left font-evolventa-regular text-sm leading-[1.33em] w-full"
-        >
-          {{ review.text }}
-        </p>
-        <div>
-          <img
-            :src="review.image"
-            :alt="review.name + ' review image'"
-            class="w-[170px] h-[170px] object-cover rounded-md"
-          />
-        </div>
-      </div>
+        :review="review"
+      />
     </div>
   </section>
 </template>
 
-<style scoped>
-/* Добавьте любые дополнительные стили здесь, если это необходимо */
-</style>
+<style scoped></style>
