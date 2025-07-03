@@ -4,7 +4,7 @@ import HomePage from "./views/HomePage.vue";
 </script>
 
 <template>
-  <main class="flex-grow">
+  <main class="flex-grow overflow-hidden">
     <HomePage />
   </main>
   <Footer />
