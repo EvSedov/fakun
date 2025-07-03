@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#2A2A2A] pt-10 pb-6 px-4 relative">
+  <footer id="contact" class="bg-[#2A2A2A] pt-10 pb-6 px-4 relative">
     <!-- Зеленая линия сверху -->
     <div class="absolute top-0 left-0 w-full h-[2px] bg-[#72C95E]"></div>
     <div
@@ -67,14 +67,30 @@
           >Компания</span
         >
         <nav class="flex flex-col gap-2 text-[14px] text-white font-evolventa">
-          <a href="#about" class="hover:text-[#72C95E] transition">О нас</a>
-          <a href="#products" class="hover:text-[#72C95E] transition"
+          <a
+            href="#about"
+            @click="scrollToSection"
+            class="hover:text-[#72C95E] transition"
+            >О нас</a
+          >
+          <a
+            href="#products"
+            @click="scrollToSection"
+            class="hover:text-[#72C95E] transition"
             >Ракетки</a
           >
-          <a href="#production" class="hover:text-[#72C95E] transition"
+          <a
+            href="#production"
+            @click="scrollToSection"
+            class="hover:text-[#72C95E] transition"
             >Производство</a
           >
-          <a href="#reviews" class="hover:text-[#72C95E] transition">Отзывы</a>
+          <a
+            href="#reviews"
+            @click="scrollToSection"
+            class="hover:text-[#72C95E] transition"
+            >Отзывы</a
+          >
         </nav>
       </div>
 
@@ -135,6 +151,7 @@ import phone from "@/assets/images/phone.svg";
 import whatsapp from "@/assets/images/footer-whatsapp.svg";
 import telegram from "@/assets/images/telegram.svg";
 import instagram from "@/assets/images/instagram.svg";
+import { scrollToSection } from "../utils/scroll";
 </script>
 
 <style scoped></style>

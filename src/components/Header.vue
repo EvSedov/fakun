@@ -1,5 +1,7 @@
 <template>
   <header
+    id="main-header"
+    ref="headerElement"
     class="backdrop-blur-md text-white py-4 px-10 fixed top-0 left-0 w-full z-20"
   >
     <div class="container mx-auto flex justify-around items-center">
@@ -7,25 +9,42 @@
       <nav class="hidden md:block">
         <ul class="flex space-x-8 font-prosto text-[17px]/13">
           <li>
-            <a href="#about" class="hover:text-[#72C95E] transition">О НАС</a>
+            <a
+              href="#about"
+              @click="scrollToSection"
+              class="hover:text-[#72C95E] transition"
+              >О НАС</a
+            >
           </li>
           <li>
-            <a href="#products" class="hover:text-[#72C95E] transition"
+            <a
+              href="#products"
+              @click="scrollToSection"
+              class="hover:text-[#72C95E] transition"
               >РАКЕТКИ</a
             >
           </li>
           <li>
-            <a href="#production" class="hover:text-[#72C95E] transition"
+            <a
+              href="#production"
+              @click="scrollToSection"
+              class="hover:text-[#72C95E] transition"
               >ПРОИЗВОДСТВО</a
             >
           </li>
           <li>
-            <a href="#reviews" class="hover:text-[#72C95E] transition"
+            <a
+              href="#reviews"
+              @click="scrollToSection"
+              class="hover:text-[#72C95E] transition"
               >ОТЗЫВЫ</a
             >
           </li>
           <li>
-            <a href="#contact" class="hover:text-[#72C95E] transition"
+            <a
+              href="#contact"
+              @click="scrollToSection"
+              class="hover:text-[#72C95E] transition"
               >КОНТАКТЫ</a
             >
           </li>
@@ -38,10 +57,19 @@
           href="tel:+79932811265"
           class="flex items-center space-x-2 text-white font-prosto text-[17px] hover:text-[#72C95E] transition"
         >
-          <font-awesome-icon
-            :icon="['fas', 'phone']"
-            class="text-white hover:text-[#72C95E] transition"
-          />
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.9688 12.5938L15.2188 15.75C15.125 16.2188 14.75 16.5312 14.2812 16.5312C6.40625 16.5 0 10.0938 0 2.21875C0 1.75 0.28125 1.375 0.75 1.28125L3.90625 0.53125C4.34375 0.4375 4.8125 0.6875 5 1.09375L6.46875 4.5C6.625 4.90625 6.53125 5.375 6.1875 5.625L4.5 7C5.5625 9.15625 7.3125 10.9062 9.5 11.9688L10.875 10.2812C11.125 9.96875 11.5938 9.84375 12 10L15.4062 11.4688C15.8125 11.6875 16.0625 12.1562 15.9688 12.5938Z"
+              fill="currentColor"
+            />
+          </svg>
+
           <span>+7 993 281 12 65</span>
         </a>
         <div class="flex space-x-3 justify-center items-center">
@@ -101,6 +129,8 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { scrollToSection } from "../utils/scroll"; // Импортируем функцию прокрутки
+</script>
 
 <style scoped></style>

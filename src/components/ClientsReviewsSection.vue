@@ -25,7 +25,7 @@ const reviews = ref([
 </script>
 
 <template>
-  <section class="bg-[#1D1D1D]">
+  <section id="reviews" class="bg-[#1D1D1D]">
     <div
       class="review-content flex flex-col items-center gap-5 py-25 max-w-[1152px] mx-auto"
     >

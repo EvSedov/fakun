@@ -5,7 +5,7 @@ import productionGif from "@/assets/images/production-process.gif";
 
 <template>
   <!-- {{ block_1 }} Контейнер секции -->
-  <section class="bg-[#2A2A2A] py-7.5">
+  <section id="production" class="bg-[#2A2A2A] py-7.5">
     <!-- Заголовок -->
     <h2
       class="font-prosto text-[24px] text-[#72C95E] text-center mb-5"

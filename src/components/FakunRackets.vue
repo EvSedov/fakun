@@ -1,5 +1,8 @@
 <template>
-  <section class="relative py-16 px-4 bg-[#181818] overflow-x-hidden">
+  <section
+    id="products"
+    class="relative py-16 px-4 bg-[#181818] overflow-x-hidden"
+  >
     <div class="rackets-content mx-auto">
       <h2 class="text-center text-[24px] font-prosto text-[#72C95E] mb-10">
         РАКЕТКИ

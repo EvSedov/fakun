@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-[#2A2A2A] py-7.5 px-4">
+  <section id="about" class="w-full bg-[#2A2A2A] py-7.5 px-4">
     <div class="max-w-6xl mx-auto flex flex-col gap-6">
       <!-- Заголовок -->
       <h2
