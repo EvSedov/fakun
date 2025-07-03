@@ -12,7 +12,7 @@
             <a
               href="#about"
               @click="scrollToSection"
-              class="hover:text-[#72C95E] transition"
+              class="hover:text-[#72C95E] transition font-prosto"
               >О НАС</a
             >
           </li>
@@ -20,7 +20,7 @@
             <a
               href="#products"
               @click="scrollToSection"
-              class="hover:text-[#72C95E] transition"
+              class="hover:text-[#72C95E] transition font-prosto"
               >РАКЕТКИ</a
             >
           </li>
@@ -28,7 +28,7 @@
             <a
               href="#production"
               @click="scrollToSection"
-              class="hover:text-[#72C95E] transition"
+              class="hover:text-[#72C95E] transition font-prosto"
               >ПРОИЗВОДСТВО</a
             >
           </li>
@@ -36,7 +36,7 @@
             <a
               href="#reviews"
               @click="scrollToSection"
-              class="hover:text-[#72C95E] transition"
+              class="hover:text-[#72C95E] transition font-prosto"
               >ОТЗЫВЫ</a
             >
           </li>
@@ -44,7 +44,7 @@
             <a
               href="#contact"
               @click="scrollToSection"
-              class="hover:text-[#72C95E] transition"
+              class="hover:text-[#72C95E] transition font-prosto"
               >КОНТАКТЫ</a
             >
           </li>
