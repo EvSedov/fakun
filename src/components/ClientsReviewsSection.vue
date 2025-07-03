@@ -25,23 +25,46 @@ const reviews = ref([
 </script>
 
 <template>
-  <section class="flex flex-col items-center gap-5 px-5 py-25 bg-[#1D1D1D]">
-    <h2
-      class="text-[#72C95E] text-center font-prosto-one text-2xl leading-[1.235em]"
-    >
-      ОТЗЫВЫ НАШИХ КЛИЕНТОВ
-    </h2>
-
+  <section class="bg-[#1D1D1D]">
     <div
-      class="flex flex-col md:flex-row md:flex-wrap justify-center items-center md:items-start gap-10 w-full max-w-[1152px]"
+      class="review-content flex flex-col items-center gap-5 py-25 max-w-[1152px] mx-auto"
     >
-      <ReviewCard
-        v-for="(review, index) in reviews"
-        :key="index"
-        :review="review"
-      />
+      <h2
+        class="text-[#72C95E] text-center font-prosto-one text-2xl leading-[1.235em]"
+      >
+        ОТЗЫВЫ НАШИХ КЛИЕНТОВ
+      </h2>
+
+      <div
+        class="flex flex-col md:flex-row md:flex-wrap justify-center items-center md:items-start gap-10 w-full relative"
+      >
+        <ReviewCard
+          v-for="(review, index) in reviews"
+          :key="index"
+          :review="review"
+        />
+      </div>
     </div>
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.review-content {
+  position: relative;
+}
+
+.review-content::before {
+  content: "";
+  position: absolute;
+  width: 496px;
+  height: 548px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(50px);
+  opacity: 0.9;
+  background-image: url("@/assets/images/ellipse-right-bottom.png");
+  bottom: -25%;
+  right: -10%;
+  z-index: 0;
+}
+</style>

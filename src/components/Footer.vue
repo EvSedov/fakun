@@ -27,6 +27,7 @@
               >+7 993 281 12 65</span
             >
           </a>
+          <img :src="phone" alt="Phone" class="w-5 h-5" />
           <img :src="whatsapp" alt="WhatsApp" class="w-5 h-5" />
           <img :src="telegram" alt="Telegram" class="w-5 h-5" />
         </div>
@@ -110,18 +111,27 @@
     </div>
     <!-- Копирайт -->
     <div
-      class="relative mt-8 text-center text-[12px] text-white/80 font-evolventa border-t-[1px] border-white/30 pt-7"
+      class="flex gap-2.5 justify-center items-center mt-8 text-center text-[12px] text-white/80 font-evolventa border-t-[1px] border-white/30 pt-7"
     >
-      © 2025 Fakun. Все права защищены. Информация сайта защищена законом об
-      авторских правах.
+      <span>
+        © 2025 Fakun. Все права защищены. Информация сайта защищена законом об
+        авторских правах.
+      </span>
+      <img
+        :src="footerLogoFakun"
+        alt="Логотип компании Fakun"
+        class="w-7.5 h-7.5"
+      />
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
 import footerCompanyLogo from "@/assets/images/footer-company-logo.png";
+import footerLogoFakun from "@/assets/images/footer-logo-fakun.svg";
 import flagRussia from "@/assets/images/flag-russia.svg";
 import flagSpain from "@/assets/images/flag-spain.svg";
+import phone from "@/assets/images/phone.svg";
 import whatsapp from "@/assets/images/footer-whatsapp.svg";
 import telegram from "@/assets/images/telegram.svg";
 import instagram from "@/assets/images/instagram.svg";

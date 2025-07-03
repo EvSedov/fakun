@@ -1,44 +1,49 @@
 <template>
   <section class="relative py-16 px-4 bg-[#181818] overflow-x-hidden">
-    <h2 class="text-center text-[24px] font-prostoOne text-[#72C95E] mb-10">
-      РАКЕТКИ
-    </h2>
-    <div class="flex items-center justify-center gap-6 max-w-[1200px] mx-auto">
-      <button
-        class="flex items-center justify-center w-14 h-14 rounded-full border border-[#72C95E] bg-transparent shadow-md mr-2 hover:bg-amber-50"
+    <div class="rackets-content mx-auto">
+      <h2 class="text-center text-[24px] font-prostoOne text-[#72C95E] mb-10">
+        РАКЕТКИ
+      </h2>
+
+      <div
+        class="flex items-center justify-center gap-6 max-w-[1200px] mx-auto relative z-10"
       >
-        <svg
-          width="24"
-          height="24"
-          fill="none"
-          stroke="#72C95E"
-          stroke-width="2"
-          viewBox="0 0 24 24"
+        <button
+          class="flex items-center justify-center w-14 h-14 rounded-full border border-[#72C95E] bg-transparent shadow-md mr-2 hover:bg-[#72C95E33] cursor-pointer"
         >
-          <path d="M15 6l-6 6 6 6" />
-        </svg>
-      </button>
-      <div class="flex gap-6">
-        <CardRacket
-          v-for="racket in rackets"
-          :key="racket.name"
-          :racket="racket"
-        />
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="#72C95E"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M15 6l-6 6 6 6" />
+          </svg>
+        </button>
+        <div class="flex gap-6">
+          <CardRacket
+            v-for="racket in rackets"
+            :key="racket.name"
+            :racket="racket"
+          />
+        </div>
+        <button
+          class="flex items-center justify-center w-14 h-14 rounded-full border border-[#72C95E] bg-transparent shadow-md ml-2 hover:bg-[#72C95E33] cursor-pointer"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="#72C95E"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M9 6l6 6-6 6" />
+          </svg>
+        </button>
       </div>
-      <button
-        class="flex items-center justify-center w-14 h-14 rounded-full border border-[#72C95E] bg-transparent shadow-md ml-2 hover:bg-amber-50"
-      >
-        <svg
-          width="24"
-          height="24"
-          fill="none"
-          stroke="#72C95E"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path d="M9 6l6 6-6 6" />
-        </svg>
-      </button>
     </div>
   </section>
 </template>
@@ -74,4 +79,40 @@ const rackets = [
 ];
 </script>
 
-<style scoped></style>
+<style scoped>
+section {
+  overflow: hidden;
+}
+.rackets-content {
+  max-width: 1152px;
+  position: relative;
+}
+
+.rackets-content::before,
+.rackets-content::after {
+  content: "";
+  position: absolute;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(50px);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.rackets-content::before {
+  width: 590px;
+  height: 370px;
+  background-image: url("@/assets/images/ellipse-right-top.png");
+  top: -5%;
+  right: -20%;
+}
+
+.rackets-content::after {
+  width: 455px;
+  height: 472px;
+  background-image: url("@/assets/images/ellipse-left-bottom.png");
+  bottom: -20%;
+  left: -10%;
+}
+</style>
