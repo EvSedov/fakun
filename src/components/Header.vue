@@ -4,10 +4,10 @@
     ref="headerElement"
     class="backdrop-blur-md text-white py-4 px-10 fixed top-0 left-0 w-full z-20"
   >
-    <div class="container mx-auto flex justify-around items-center">
+    <div class="container mx-auto flex justify-around items-center flex-wrap">
       <!-- Разделы навигации -->
       <nav class="hidden md:block">
-        <ul class="flex space-x-8 font-prosto text-[17px]/13">
+        <ul class="flex space-x-7.5 font-prosto text-[17px]/13">
           <li>
             <a
               href="#about"

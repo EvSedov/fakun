@@ -19,7 +19,7 @@
     <div class="absolute inset-0 w-full h-full bg-black/40 z-1"></div>
 
     <!-- Header фиксированный, но внутри секции -->
-    <Header class="fixed top-0 left-0 w-full z-20" />
+    <Header class="fixed top-0 left-0 z-20" />
 
     <!-- Контент: логотип и текст поверх overlay -->
     <div class="relative z-10 flex flex-col items-center w-full px-4 pt-24">
