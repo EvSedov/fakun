@@ -24,7 +24,7 @@ const closeLightbox = () => {
 
 <template>
   <div
-    class="w-[350px] h-auto flex flex-col items-center justify-center gap-2.5 p-2.5 border-t-[#72C95E] rounded-t-[10px] border-t-4 bg-[#2A2A2A]"
+    class="w-[350px] h-auto flex flex-col items-center justify-center gap-2.5 p-2.5 border-t-[#72C95E] rounded-[10px] border-t-4 bg-[#2A2A2A]"
   >
     <p
       class="text-[#72C95E] text-left font-evolventa-bold text-base leading-[1.33em] w-full"
