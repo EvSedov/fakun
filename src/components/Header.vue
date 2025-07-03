@@ -75,7 +75,8 @@
         <div class="flex space-x-3 justify-center items-center">
           <!-- Иконки соцсетей -->
           <a
-            href="#"
+            href="https://wa.me/79932811265"
+            target="_blank"
             class="flex justify-center items-center text-white transition text-lg w-5 h-5"
           >
             <svg
@@ -92,7 +93,8 @@
             </svg>
           </a>
           <a
-            href="#"
+            href="https://t.me/Padel_Fakun"
+            target="_blank"
             class="flex justify-center items-center text-white transition text-lg w-5 h-5 hover:text-[#72C95E]"
           >
             <svg
@@ -119,8 +121,9 @@
 
           <!-- Кнопка OZON -->
           <a
-            href="#"
-            class="text-white px-4 py-2 rounded-md hover:bg-[#0046C7] font-evolventa text-[16px] transition border-2 border-[#005BFF]"
+            href="https://www.ozon.ru/seller/fakun-padel-10940/products/"
+            target="_blank"
+            class="text-white px-4 py-2 rounded-md hover:bg-[#0046C7] font-evolventa text-base/normal transition border-2 border-[#005BFF]"
             >OZON</a
           >
         </div>

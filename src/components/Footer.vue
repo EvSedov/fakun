@@ -100,26 +100,26 @@
           <span class="font-bold text-[16px] text-white font-evolventa"
             >Социальные сети</span
           >
-          <div class="flex items-center gap-2">
+          <a
+            href="https://t.me/Padel_Fakun"
+            target="_blank"
+            class="flex items-center gap-2"
+          >
             <img
               :src="telegram"
               alt="Telegram"
               class="w-5 h-5 hover:brightness-0 hover:invert"
             />
-            <img
-              :src="instagram"
-              alt="Instagram"
-              class="w-5 h-5 hover:brightness-0 hover:invert"
-            />
-          </div>
+          </a>
         </div>
         <div class="flex flex-col gap-2.5">
           <span class="font-bold text-[16px] text-white font-evolventa"
             >Наши ракетки на маркетплейс</span
           >
           <a
-            href="#"
-            class="max-w-18 inline-block border border-[#005BFF] rounded-[5px] px-2.5 py-0.5 text-white font-evolventa text-[16px] hover:bg-[#005BFF] hover:text-white transition"
+            href="https://www.ozon.ru/seller/fakun-padel-10940/products/"
+            target="_blank"
+            class="max-w-18 inline-block border border-[#005BFF] rounded-[5px] px-2.5 py-0.5 text-white font-evolventa text-base/normal hover:bg-[#005BFF] hover:text-white transition"
             >OZON</a
           >
         </div>
