@@ -40,8 +40,8 @@
       <h2
         class="text-[48px] font-bold font-prosto mb-3 leading-[1.1] drop-shadow-hero"
       >
-        <span class="text-white">РАКЕТКИ ДЛЯ </span
-        ><span class="text-[#72C95E]">ПАДЕЛ-ТЕННИСА</span>
+        <span class="text-white font-prosto">РАКЕТКИ ДЛЯ </span
+        ><span class="text-[#72C95E] font-prosto">ПАДЕЛ-ТЕННИСА</span>
       </h2>
 
       <!-- Описание: светло-серый, тень -->
