@@ -23,7 +23,7 @@ import productionGif from "@/assets/images/production-process.gif";
             <span class="text-[#72C95E] font-bold">
               Город Реус, провинция Таррагона, Испания
             </span>
-            <div class="text-white text-sm">
+            <div class="text-white text-base">
               - именно здесь мы производим ракетки Fakun
             </div>
           </div>
