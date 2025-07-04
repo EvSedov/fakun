@@ -4,39 +4,41 @@
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
     @click.self="closeModal"
   >
-    <div class="p-3">
-      <div
-        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1000px] w-full max-h-[90vh] relative flex flex-col md:flex-row gap-12.5 px-10 py-15"
+    <div class="p-3 relative">
+      <!-- Кнопка закрытия -->
+      <button
+        class="absolute top-0.5 right-0.5 text-white w-8 h-8 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-900 transition-colors z-55 border-white border-2"
+        @click="closeModal"
       >
-        <!-- Кнопка закрытия -->
-        <button
-          class="absolute top-[-10px] right-[-10px] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors z-55 border-white border-2"
-          @click="closeModal"
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            ></path>
-          </svg>
-        </button>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+      <div
+        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1000px] w-full max-h-[90vh] flex flex-col md:flex-row gap-12.5 px-10 py-15 overflow-y-auto"
+      >
         <!-- Левая часть: Изображение ракетки, кнопки, описание -->
-        <div class="max-w-[398px] flex flex-col items-center justify-start">
+        <div
+          class="max-w-[398px] flex flex-col items-center justify-start min-h-0"
+        >
           <div
-            class="bg-white overflow-hidden w-full h-auto flex items-center justify-center mb-6 rounded-[10px] px-14.5"
+            class="bg-white w-full h-auto flex items-center justify-center mb-6 rounded-[10px]"
           >
             <img
               :src="racket.image"
               :alt="racket.name"
-              class="max-w-[282px] w-full h-auto object-contain"
+              class="max-w-[282px] w-full h-auto"
             />
           </div>
 
@@ -61,7 +63,7 @@
         </div>
 
         <!-- Правая часть: Детали и характеристики -->
-        <div class="w-full text-white">
+        <div class="w-full text-white min-h-0">
           <div class="flex justify-between items-center mb-2.5">
             <h2 class="text-[#72C95E] text-[20px]">
               {{ racket.name }}
