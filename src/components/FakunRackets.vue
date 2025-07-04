@@ -69,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, watch, onUnmounted } from "vue";
 import CardRacket from "./CardRacket.vue";
 import RacketDetailsModal from "./RacketDetailsModal.vue";
 
@@ -399,6 +399,23 @@ const handleRacketUpdate = (updatedRacket: Racket) => {
     rackets.value[index] = updatedRacket;
   }
 };
+
+watch(
+  isModalOpen,
+  () => {
+    if (isModalOpen.value) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  },
+  { deep: true }
+);
+
+onUnmounted(() => {
+  // Важно сбросить overflow при размонтировании, если модальное окно было открыто
+  document.body.classList.remove("overflow-hidden", "fixed", "inset-0");
+});
 </script>
 
 <style scoped>

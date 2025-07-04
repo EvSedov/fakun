@@ -160,7 +160,15 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, type PropType, ref, watch } from "vue";
+import {
+  defineProps,
+  defineEmits,
+  type PropType,
+  ref,
+  watch,
+  onMounted,
+  onUnmounted,
+} from "vue";
 
 interface Racket {
   id: string;
@@ -223,6 +231,8 @@ watch(
   { deep: true, immediate: true }
 );
 
+// Управление прокруткой body и html
+
 const closeModal = () => {
   emit("close");
 };
@@ -239,15 +249,12 @@ const handleKeydown = (event: KeyboardEvent) => {
   }
 };
 
-// Добавляем и убираем слушатель события
-import { onMounted, onUnmounted } from "vue";
-
 onMounted(() => {
-  document.addEventListener("keydown", handleKeydown);
+  window.addEventListener("keydown", handleKeydown);
 });
 
 onUnmounted(() => {
-  document.removeEventListener("keydown", handleKeydown);
+  window.removeEventListener("keydown", handleKeydown);
 });
 </script>
 
