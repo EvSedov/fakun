@@ -2,12 +2,13 @@
   <div class="w-[310px] rounded-[10px] overflow-hidden shadow-lg">
     <!-- Верхняя часть карточки (изображение) -->
     <div
-      class="bg-white flex justify-center items-center h-[315px] rounded-t-[10px] cursor-pointer"
+      class="bg-white flex justify-center items-center h-[315px] rounded-t-[10px]r"
     >
       <img
         :src="racket.colorOptions[racket.selectedColorKey].image"
         :alt="racket.name"
-        class="w-[236px] h-[315px] object-contain"
+        class="w-[236px] h-[315px] object-contain cursor-pointer"
+        @click="emit('open-details', racket)"
       />
     </div>
     <!-- Нижняя часть карточки (детали) -->
@@ -16,6 +17,7 @@
     >
       <h3
         class="text-white font-prosto text-[20px] leading-[1.235em] hover:text-[#72C95E] cursor-pointer"
+        @click="emit('open-details', racket)"
       >
         {{ racket.name }}
       </h3>
@@ -26,7 +28,8 @@
           :key="key"
           class="relative w-7 h-7 rounded-full shadow-md cursor-pointer flex-shrink-0 flex items-center justify-center hover:scale-125"
           :class="{
-            'border-2 border-white': key === racket.selectedColorKey,
+            'shadow-black/70 shadow-2xl scale-125':
+              key === racket.selectedColorKey,
           }"
           @click="selectColor(key as string)"
         >
@@ -75,7 +78,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, type PropType } from "vue";
+import { defineProps, ref, type PropType, defineEmits } from "vue";
 import { type IRacket, ALL_RACKET_COLORS } from "@/assets/data";
 
 const props = defineProps({
@@ -85,9 +88,8 @@ const props = defineProps({
     default: () => ({
       id: "",
       name: "Название ракетки",
-      image: "",
-      colors: [],
-      selectedColor: "",
+      colorOptions: {},
+      selectedColorKey: "",
       ozonLink: "#",
       price: "0",
       description: "",
@@ -96,7 +98,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["close", "update:racket"]);
+const emit = defineEmits(["open-details", "update:racket"]);
 const currentRacket = ref<IRacket>(props.racket);
 
 const selectColor = (colorKey: string) => {

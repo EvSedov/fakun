@@ -151,7 +151,7 @@ onUnmounted(() => {
                 :key="key"
                 class="relative w-7 h-7 rounded-full shadow-md cursor-pointer flex-shrink-0 flex items-center justify-center hover:scale-125"
                 :class="{
-                  'border-2 border-white':
+                  'shadow-black/70 shadow-2xl scale-125':
                     key === currentRacket.selectedColorKey,
                 }"
                 @click="selectColor(key as string)"

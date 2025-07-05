@@ -36,7 +36,7 @@
               v-for="racket in rackets"
               :key="racket.id"
               :racket="racket"
-              @click="openRacketDetails(racket)"
+              @open-details="openRacketDetails"
             />
           </div>
         </div>
