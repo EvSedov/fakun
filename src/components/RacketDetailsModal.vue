@@ -1,3 +1,67 @@
+<script setup lang="ts">
+import {
+  defineProps,
+  defineEmits,
+  type PropType,
+  ref,
+  watch,
+  onMounted,
+  onUnmounted,
+} from "vue";
+
+import { type Racket } from "@/assets/data";
+
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+    default: false,
+  },
+  racket: {
+    type: Object as PropType<Racket>,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["close", "update:racket"]);
+
+const currentRacket = ref<Racket>({ ...props.racket });
+
+// Обновляем currentRacket при изменении пропса racket
+watch(
+  () => props.racket,
+  (newVal) => {
+    currentRacket.value = { ...newVal };
+  },
+  { deep: true, immediate: true }
+);
+
+// Управление прокруткой body и html
+
+const closeModal = () => {
+  emit("close");
+};
+
+const selectColor = (color: string | [string, string]) => {
+  currentRacket.value.selectedColor = color;
+  emit("update:racket", currentRacket.value);
+};
+
+// Обработка Esc для закрытия модального окна
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("keydown", handleKeydown);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
+</script>
+
 <template>
   <div
     v-if="isOpen"
@@ -104,52 +168,16 @@
               </div>
             </div>
           </div>
+
           <h3 class="text-[#72C95E] text-[20px] mb-5">{{ racket.price }} ₽</h3>
-
           <!-- Секции характеристик -->
-          <div class="space-y-2.5 text-[14px]">
-            <div v-if="racket.characteristics">
-              <p class="text-[#72C95E] text-[16px]">Основные характеристики</p>
+          <div v-if="racket.characteristics" class="space-y-2.5 text-[14px]">
+            <div v-for="item of racket.characteristics">
+              <p class="text-[#72C95E] text-[16px]">{{ item.title }}</p>
               <ul class="list-disc pl-5 text-[14px]">
-                <li>Геометрия: {{ racket.characteristics.geometry }}</li>
-                <li>Профиль: {{ racket.characteristics.profile }}</li>
-                <li>Баланс: {{ racket.characteristics.balance }}</li>
-                <li>Вес: {{ racket.characteristics.weight }}</li>
-                <li>Уровень: {{ racket.characteristics.level }}</li>
-              </ul>
-            </div>
-
-            <div v-if="racket.materials">
-              <p class="text-[#72C95E] text-[16px]">Материалы и конструкция</p>
-              <ul class="list-disc pl-5 text-[14px]">
-                <li>Основной материал: {{ racket.materials.mainMaterial }}</li>
-                <li>Состав ядра: {{ racket.materials.coreComposition }}</li>
-                <li>
-                  Технология производства:
-                  {{ racket.materials.productionTechnology }}
+                <li v-for="desc of item.setCharacteristics">
+                  {{ desc }}
                 </li>
-                <li>Бурение: {{ racket.materials.drilling }}</li>
-                <li>Протектор: {{ racket.materials.protector }}</li>
-              </ul>
-            </div>
-
-            <div v-if="racket.gameFeatures">
-              <p class="text-[#72C95E] text-[16px]">Игровые характеристики</p>
-              <ul class="list-disc pl-5 text-[14px]">
-                <li>Контроль: {{ racket.gameFeatures.control }}</li>
-                <li>Мощность: {{ racket.gameFeatures.power }}</li>
-                <li>Точность мяча: {{ racket.gameFeatures.accuracy }}</li>
-                <li>Прочность: {{ racket.gameFeatures.durability }}</li>
-              </ul>
-            </div>
-
-            <div v-if="racket.advantages">
-              <p class="text-[#72C95E] text-[16px]">Преимущества модели</p>
-              <ul class="list-disc pl-5 text-[14px]">
-                <li>Технологичность: {{ racket.advantages.technological }}</li>
-                <li>Универсальность: {{ racket.advantages.versatility }}</li>
-                <li>Эффективность: {{ racket.advantages.efficiency }}</li>
-                <li>Долговечность: {{ racket.advantages.longevity }}</li>
               </ul>
             </div>
           </div>
@@ -158,104 +186,5 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import {
-  defineProps,
-  defineEmits,
-  type PropType,
-  ref,
-  watch,
-  onMounted,
-  onUnmounted,
-} from "vue";
-
-interface Racket {
-  id: string;
-  name: string;
-  price: string;
-  image: string;
-  colors: (string | [string, string])[];
-  selectedColor: string | [string, string];
-  ozonLink: string;
-  description: string;
-  characteristics: {
-    geometry: string;
-    profile: string;
-    balance: string;
-    weight: string;
-    level: string;
-  };
-  materials: {
-    mainMaterial: string;
-    coreComposition: string;
-    productionTechnology: string;
-    drilling: string;
-    protector: string;
-  };
-  gameFeatures: {
-    control: string;
-    power: string;
-    accuracy: string;
-    durability: string;
-  };
-  advantages: {
-    technological: string;
-    versatility: string;
-    efficiency: string;
-    longevity: string;
-  };
-}
-
-const props = defineProps({
-  isOpen: {
-    type: Boolean,
-    default: false,
-  },
-  racket: {
-    type: Object as PropType<Racket>,
-    required: true,
-  },
-});
-
-const emit = defineEmits(["close", "update:racket"]);
-
-const currentRacket = ref<Racket>({ ...props.racket });
-
-// Обновляем currentRacket при изменении пропса racket
-watch(
-  () => props.racket,
-  (newVal) => {
-    currentRacket.value = { ...newVal };
-  },
-  { deep: true, immediate: true }
-);
-
-// Управление прокруткой body и html
-
-const closeModal = () => {
-  emit("close");
-};
-
-const selectColor = (color: string | [string, string]) => {
-  currentRacket.value.selectedColor = color;
-  emit("update:racket", currentRacket.value);
-};
-
-// Обработка Esc для закрытия модального окна
-const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === "Escape") {
-    closeModal();
-  }
-};
-
-onMounted(() => {
-  window.addEventListener("keydown", handleKeydown);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("keydown", handleKeydown);
-});
-</script>
 
 <style scoped></style>
