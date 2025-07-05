@@ -25,17 +25,7 @@ const props = defineProps({
 const emit = defineEmits(["close", "update:racket"]);
 const currentRacket = ref<IRacket>(props.racket);
 
-// Обновляем currentRacket при изменении пропса racket
-watch(
-  () => props.racket,
-  (newVal) => {
-    currentRacket.value = JSON.parse(JSON.stringify(newVal));
-  },
-  { deep: true, immediate: true }
-);
-
 // Управление прокруткой body и html
-
 const closeModal = () => {
   emit("close");
 };
@@ -50,6 +40,13 @@ const currentRacketOption = ref(
   props.racket.colorOptions[props.racket.selectedColorKey]
 );
 
+// Обработка Esc для закрытия модального окна
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+};
+
 watch(
   () => props.racket.selectedColorKey,
   (newKey) => {
@@ -58,12 +55,14 @@ watch(
   { deep: true, immediate: true }
 );
 
-// Обработка Esc для закрытия модального окна
-const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === "Escape") {
-    closeModal();
-  }
-};
+// Обновляем currentRacket при изменении пропса racket
+watch(
+  () => props.racket,
+  (newVal) => {
+    currentRacket.value = newVal;
+  },
+  { deep: true, immediate: true }
+);
 
 onMounted(() => {
   window.addEventListener("keydown", handleKeydown);
@@ -125,7 +124,7 @@ onUnmounted(() => {
               Добавить в корзину
             </button>
             <a
-              :href="currentRacketOption.ozonLink"
+              :href="racket.colorOptions[racket.selectedColorKey].ozonLink"
               target="_blank"
               class="px-5 py-3 rounded-[5px] border border-[#005BFF] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#005BFF] transition-colors duration-200"
             >

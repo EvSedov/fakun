@@ -117,7 +117,7 @@
             >Наши ракетки на маркетплейс</span
           >
           <a
-            href="https://www.ozon.ru/seller/fakun-padel-10940/products/"
+            href="https://www.ozon.ru/seller/fakun-padel-10940/"
             target="_blank"
             class="max-w-18 inline-block border border-[#005BFF] rounded-[5px] px-2.5 py-0.5 text-white font-evolventa text-base/normal hover:bg-[#005BFF] hover:text-white transition"
             >OZON</a

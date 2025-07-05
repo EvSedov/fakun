@@ -122,23 +122,26 @@ const racketAbaddon = {
   id: "racket-abaddon",
   name: "FAKUN ABADDON",
   colorOptions: {
-    redGold: {
+    black: {
       color: ALL_RACKET_COLORS.redGold,
       image: racketAbaddonImg,
-      ozonLink: "#",
+      ozonLink:
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-x31-black-edition-s-sherohovatoy-poverhnostyu-2060278771/?at=r2t4yXjOZTGvDrzkTjM7WlguwPpmwAU9Rmpzf8nENz5&from_sku=2055797983&oos_search=false",
     },
     whiteRed: {
       color: ALL_RACKET_COLORS.whiteRed,
       image: racketAbaddonImg,
-      ozonLink: "#",
+      ozonLink:
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-abaddon-2055797983/?at=r2t4yXjOZTGvDrzkTjM7WlguwPpmwAU9Rmpzf8nENz5",
     },
     gold: {
       color: ALL_RACKET_COLORS.gold,
       image: racketAbaddonImg,
-      ozonLink: "#",
+      ozonLink:
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-abaddon-2055780054/?at=A6tGxMo5Oc5KgM2zuNk1BVrcm3jY9mHWM5D69CxGXOw3",
     },
   },
-  selectedColorKey: "redGold",
+  selectedColorKey: "whiteRed",
   price: "32 990",
   description:
     "Ракетка FAKUN ASTAROTH представляет собой высокотехнологичное решение для игроков высокого уровня, стремящихся к максимальной эффективности в игре, благодаря инновационным материалам и продуманной конструкции.",
@@ -194,12 +197,14 @@ const racketAzrael = {
     redGold: {
       color: ALL_RACKET_COLORS.redGold,
       image: racketAzraelImg,
-      ozonLink: "#",
+      ozonLink:
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-azrael-2055917733/?at=46tRZGWx5SX1Zz9kF4WWG8OSygX1Rks8QBAWDiDWqgwz",
     },
     blackWhite: {
       color: ALL_RACKET_COLORS.blackWhite,
       image: racketAzraelImg,
-      ozonLink: "#",
+      ozonLink:
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-azrael-s-sherohovatoy-poverhnostyu-2055938192/?at=qQtJgGrvNcvV6pWYSwqXElViwBMZMPcZLO7ZMir8y1mD",
     },
   },
   selectedColorKey: "redGold",
@@ -257,19 +262,19 @@ const racketAstaroth = {
       color: ALL_RACKET_COLORS.greenGold,
       image: racketAstarothImg,
       ozonLink:
-        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-s-sherohovatoy-poverhnostyu-2060298115/?at=Brtzx3mNKSOElqKMTzrvVl9Ty5ArkOtNMkXKguVE7RM6",
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-2055803035/?at=w0tg5XQnxTLr74RoSg0YnAMFJoZ6k4fA23x87C1WjJE6",
     },
     redWhite: {
       color: ALL_RACKET_COLORS.redWhite,
       image: racketAstarothImg,
       ozonLink:
-        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-s-sherohovatoy-poverhnostyu-2060298115/?at=Brtzx3mNKSOElqKMTzrvVl9Ty5ArkOtNMkXKguVE7RM6",
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-1953315293/?at=k2toDZ0vBsN4wLvri0rlOjohG5BpqPhm38Y5lHAWL7NY",
     },
     blueGold: {
       color: ALL_RACKET_COLORS.blueGold,
       image: racketAstarothImg,
       ozonLink:
-        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-s-sherohovatoy-poverhnostyu-2060298115/?at=Brtzx3mNKSOElqKMTzrvVl9Ty5ArkOtNMkXKguVE7RM6",
+        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-2055929783/?at=w0tg5XQnxTXrpGZZi52QGJLsV5KWB8hgmDYzqSEqxkzB",
     },
   },
   selectedColorKey: "black",

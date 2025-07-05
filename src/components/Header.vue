@@ -121,7 +121,7 @@
 
           <!-- Кнопка OZON -->
           <a
-            href="https://www.ozon.ru/seller/fakun-padel-10940/products/"
+            href="https://www.ozon.ru/seller/fakun-padel-10940/"
             target="_blank"
             class="text-white px-4 py-2 rounded-md hover:bg-[#0046C7] font-evolventa text-base/normal transition border-2 border-[#005BFF]"
             >OZON</a
