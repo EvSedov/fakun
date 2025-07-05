@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative min-h-[1072px] w-full flex flex-col items-center justify-center text-center overflow-hidden"
+    class="relative h-[100vh] w-full flex flex-col items-center justify-center text-center overflow-hidden"
   >
     <!-- Фоновое видео -->
     <video
