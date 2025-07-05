@@ -72,11 +72,11 @@
 import { ref, watch, onUnmounted } from "vue";
 import CardRacket from "./CardRacket.vue";
 import RacketDetailsModal from "./RacketDetailsModal.vue";
-import { type Racket, racketsData } from "@/assets/data";
+import { type IRacket, racketsData } from "@/assets/data";
 
-const rackets = ref<Racket[]>(racketsData);
+const rackets = ref<IRacket[]>(racketsData);
 const isModalOpen = ref(false);
-const selectedRacket = ref<Racket | null>(null);
+const selectedRacket = ref<IRacket | null>(null);
 
 const currentIndex = ref(0);
 const itemsPerPage = 3;
@@ -98,7 +98,7 @@ const prevRackets = () => {
   }
 };
 
-const openRacketDetails = (racket: Racket) => {
+const openRacketDetails = (racket: IRacket) => {
   selectedRacket.value = racket;
   isModalOpen.value = true;
 };
@@ -108,7 +108,7 @@ const closeRacketDetails = () => {
   selectedRacket.value = null;
 };
 
-const handleRacketUpdate = (updatedRacket: Racket) => {
+const handleRacketUpdate = (updatedRacket: IRacket) => {
   const index = rackets.value.findIndex((r) => r.id === updatedRacket.id);
   if (index !== -1) {
     rackets.value[index] = updatedRacket;

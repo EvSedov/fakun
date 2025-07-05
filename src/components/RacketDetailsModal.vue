@@ -9,7 +9,7 @@ import {
   onUnmounted,
 } from "vue";
 
-import { type Racket } from "@/assets/data";
+import { type IRacket, ALL_RACKET_COLORS } from "@/assets/data";
 
 const props = defineProps({
   isOpen: {
@@ -17,20 +17,19 @@ const props = defineProps({
     default: false,
   },
   racket: {
-    type: Object as PropType<Racket>,
+    type: Object as PropType<IRacket>,
     required: true,
   },
 });
 
 const emit = defineEmits(["close", "update:racket"]);
-
-const currentRacket = ref<Racket>({ ...props.racket });
+const currentRacket = ref<IRacket>(props.racket);
 
 // Обновляем currentRacket при изменении пропса racket
 watch(
   () => props.racket,
   (newVal) => {
-    currentRacket.value = { ...newVal };
+    currentRacket.value = JSON.parse(JSON.stringify(newVal));
   },
   { deep: true, immediate: true }
 );
@@ -41,10 +40,23 @@ const closeModal = () => {
   emit("close");
 };
 
-const selectColor = (color: string | [string, string]) => {
-  currentRacket.value.selectedColor = color;
+const selectColor = (colorKey: string) => {
+  currentRacket.value.selectedColorKey = colorKey;
   emit("update:racket", currentRacket.value);
 };
+
+// Добавлена вычисляемая переменная для текущей опции цвета
+const currentRacketOption = ref(
+  props.racket.colorOptions[props.racket.selectedColorKey]
+);
+
+watch(
+  () => props.racket.selectedColorKey,
+  (newKey) => {
+    currentRacketOption.value = props.racket.colorOptions[newKey];
+  },
+  { deep: true, immediate: true }
+);
 
 // Обработка Esc для закрытия модального окна
 const handleKeydown = (event: KeyboardEvent) => {
@@ -100,7 +112,7 @@ onUnmounted(() => {
             class="bg-white w-full h-auto flex items-center justify-center mb-6 rounded-[10px]"
           >
             <img
-              :src="racket.image"
+              :src="currentRacketOption.image"
               :alt="racket.name"
               class="max-w-[282px] w-full h-auto"
             />
@@ -113,7 +125,7 @@ onUnmounted(() => {
               Добавить в корзину
             </button>
             <a
-              :href="racket.ozonLink"
+              :href="currentRacketOption.ozonLink"
               target="_blank"
               class="px-5 py-3 rounded-[5px] border border-[#005BFF] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#005BFF] transition-colors duration-200"
             >
@@ -135,34 +147,28 @@ onUnmounted(() => {
             <!-- Цветовые опции -->
             <div class="flex gap-3">
               <div
-                v-for="(colorOption, index) in racket.colors"
-                :key="index"
-                class="relative w-7 h-7 rounded-full shadow-md cursor-pointer flex-shrink-0 flex items-center justify-center"
+                v-for="key in Object.keys(racket.colorOptions)"
+                :key="key"
+                class="relative w-7 h-7 rounded-full shadow-md cursor-pointer flex-shrink-0 flex items-center justify-center hover:scale-125"
                 :class="{
                   'border-2 border-white':
-                    (Array.isArray(colorOption) &&
-                      Array.isArray(racket.selectedColor) &&
-                      colorOption[0] === racket.selectedColor[0] &&
-                      colorOption[1] === racket.selectedColor[1]) ||
-                    (!Array.isArray(colorOption) &&
-                      !Array.isArray(racket.selectedColor) &&
-                      colorOption === racket.selectedColor),
+                    key === currentRacket.selectedColorKey,
                 }"
-                @click="selectColor(colorOption)"
+                @click="selectColor(key as string)"
               >
                 <div
-                  v-if="!Array.isArray(colorOption)"
+                  v-if="!Array.isArray(ALL_RACKET_COLORS[key as string].colors)"
                   class="w-full h-full rounded-full"
-                  :style="{ backgroundColor: colorOption }"
+                  :style="{ backgroundColor: ALL_RACKET_COLORS[key as string].colors as string }"
                 ></div>
                 <div
                   v-else
                   class="relative w-full h-full rounded-full flex items-center justify-center"
-                  :style="{ backgroundColor: colorOption[0] }"
+                  :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[0] }"
                 >
                   <div
                     class="w-4 h-4 rounded-full"
-                    :style="{ backgroundColor: colorOption[1] }"
+                    :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[1] }"
                   ></div>
                 </div>
               </div>
