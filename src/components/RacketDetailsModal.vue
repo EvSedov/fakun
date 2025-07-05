@@ -121,7 +121,7 @@ onUnmounted(() => {
             <button
               class="px-5 py-3 rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black transition-colors duration-200"
             >
-              Добавить в корзину
+              Заказать
             </button>
             <a
               :href="racket.colorOptions[racket.selectedColorKey].ozonLink"

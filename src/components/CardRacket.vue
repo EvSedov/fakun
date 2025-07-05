@@ -71,7 +71,7 @@
       <button
         class="w-29.5 px-[15px] py-[10px] rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black hover:border-[#72C95E] transition-colors duration-200"
       >
-        В корзину
+        Заказать
       </button>
     </div>
   </div>
