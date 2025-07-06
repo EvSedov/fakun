@@ -30,28 +30,28 @@ export interface IRacket {
 
 export const ALL_RACKET_COLORS: Record<string, IRacketColorOption> = {
   whiteRed: {
-    name: "Бело-красный",
+    name: "Бело-красном",
     colors: ["#FFFFFF", "#FF0000"] as [string, string],
   },
   blueGold: {
-    name: "Сине-золотой",
+    name: "Сине-золотом",
     colors: ["#0000FF", "#FFD700"] as [string, string],
   },
-  black: { name: "Черный", colors: "#000000" },
+  black: { name: "Черном", colors: "#000000" },
   redGold: {
-    name: "Красно-золотой",
+    name: "Красно-золотом",
     colors: ["#FF0000", "#FFD700"] as [string, string],
   },
   blackWhite: {
-    name: "Черно-белый",
+    name: "Черно-белом",
     colors: ["#000000", "#FFFFFF"] as [string, string],
   },
   redWhite: {
-    name: "Красно-белый",
+    name: "Красно-белом",
     colors: ["#FF0000", "#FFFFFF"] as [string, string],
   },
   greenGold: {
-    name: "Зелено-золотой",
+    name: "Зелено-золотом",
     colors: ["#008000", "#FFD700"] as [string, string],
   },
   gold: { name: "Золотой", colors: "#FFD700" },

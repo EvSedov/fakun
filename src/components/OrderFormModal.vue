@@ -283,7 +283,7 @@ const racketImage = computed(() => {
 
 const racketName = computed(() => {
   return props.racketData
-    ? `${props.racketData.name} в ${
+    ? `Ракетка ${props.racketData.name} в ${
         ALL_RACKET_COLORS[
           props.racketData.selectedColorKey
         ]?.name?.toLowerCase() || ""
