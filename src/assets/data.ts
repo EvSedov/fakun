@@ -54,7 +54,7 @@ export const ALL_RACKET_COLORS: Record<string, IRacketColorOption> = {
     name: "Зелено-золотом",
     colors: ["#008000", "#FFD700"] as [string, string],
   },
-  gold: { name: "Золотой", colors: "#FFD700" },
+  gold: { name: "Золотом", colors: "#FFD700" },
 };
 
 const racketX31 = {
