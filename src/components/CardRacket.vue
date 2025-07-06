@@ -67,8 +67,9 @@
       <p class="text-[#72C95E] font-prosto text-[20px] leading-[1.235em]">
         {{ racket.price }} ₽
       </p>
-      <!-- Кнопка "В корзину" -->
+      <!-- Кнопка "Заказать" с новым обработчиком события -->
       <button
+        @click="emit('open-order-modal', racket)"
         class="w-29.5 px-[15px] py-[10px] rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black hover:border-[#72C95E] transition-colors duration-200"
       >
         Заказать
@@ -98,7 +99,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["open-details", "update:racket"]);
+const emit = defineEmits(["open-details", "update:racket", "open-order-modal"]);
 const currentRacket = ref<IRacket>(props.racket);
 
 const selectColor = (colorKey: string) => {

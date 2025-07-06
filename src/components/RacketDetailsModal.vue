@@ -22,7 +22,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["close", "update:racket"]);
+const emit = defineEmits(["close", "update:racket", "open-order-modal"]);
 const currentRacket = ref<IRacket>(props.racket);
 
 // Управление прокруткой body и html
@@ -119,6 +119,7 @@ onUnmounted(() => {
 
           <div class="flex gap-4 mb-6 justify-start items-center w-full">
             <button
+              @click="emit('open-order-modal', racket)"
               class="px-5 py-3 rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black transition-colors duration-200"
             >
               Заказать

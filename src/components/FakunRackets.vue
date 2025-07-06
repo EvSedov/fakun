@@ -37,6 +37,7 @@
               :key="racket.id"
               :racket="racket"
               @open-details="openRacketDetails"
+              @open-order-modal="handleOpenOrderModal"
             />
           </div>
         </div>
@@ -64,14 +65,22 @@
       :racket="selectedRacket"
       @close="closeRacketDetails"
       @update:racket="handleRacketUpdate"
+      @open-order-modal="handleOpenOrderModalFromDetails"
+    />
+
+    <OrderFormModal
+      :isVisible="showOrderModal"
+      :racketData="selectedRacketForOrder"
+      @close="showOrderModal = false"
     />
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onUnmounted } from "vue";
+import { ref, watch, onUnmounted, shallowRef } from "vue";
 import CardRacket from "./CardRacket.vue";
 import RacketDetailsModal from "./RacketDetailsModal.vue";
+import OrderFormModal from "./OrderFormModal.vue";
 import { type IRacket, racketsData } from "@/assets/data";
 
 const rackets = ref<IRacket[]>(racketsData);
@@ -115,10 +124,36 @@ const handleRacketUpdate = (updatedRacket: IRacket) => {
   }
 };
 
+const showOrderModal = ref(false);
+const selectedRacketForOrder = shallowRef<IRacket | null>(null);
+
+const handleOpenOrderModal = (racket: IRacket) => {
+  selectedRacketForOrder.value = racket;
+  showOrderModal.value = true;
+};
+
+const handleOpenOrderModalFromDetails = (racket: IRacket) => {
+  selectedRacketForOrder.value = racket;
+  isModalOpen.value = false;
+  showOrderModal.value = true;
+};
+
 watch(
   isModalOpen,
   () => {
     if (isModalOpen.value) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  },
+  { deep: true }
+);
+
+watch(
+  showOrderModal,
+  () => {
+    if (showOrderModal.value) {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
