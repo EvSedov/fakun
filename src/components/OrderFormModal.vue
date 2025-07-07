@@ -2,8 +2,37 @@
   <!-- {{ edit_1 }} Добавляем v-if для управления видимостью модального окна -->
   <div
     v-if="isVisible"
-    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 h-[100vh]"
   >
+    <!-- {{ edit_1 }} Контейнер для уведомлений -->
+    <transition name="fade">
+      <div
+        v-if="showNotification"
+        :class="notificationClasses"
+        class="fixed top-5 left-1/2 -translate-x-1/2 p-4 rounded-lg shadow-lg text-white font-semibold z-55 flex items-center justify-between gap-4 max-w-sm w-full"
+      >
+        <span>{{ notificationMessage }}</span>
+        <button
+          @click="showNotification = false"
+          class="ml-auto text-white/70 hover:text-white"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </transition>
+
     <!-- {{ edit_2 }} Контейнер для содержимого модального окна -->
     <div class="p-3 relative">
       <!-- {{ edit_3 }} Добавляем обработчик клика для кнопки закрытия -->
@@ -153,11 +182,19 @@
                 >Ваше имя</label
               >
               <input
+                v-model="userName"
                 type="text"
                 id="name"
                 placeholder="Иван"
-                class="bg-transparent border border-[#72C95E] rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                class="bg-transparent border rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                :class="userNameError ? 'border-red-500' : 'border-[#72C95E]'"
+                @input="validateUserName"
+                @blur="validateUserName"
               />
+              <!-- {{ edit_1 }} Отображение ошибки для имени -->
+              <p v-if="userNameError" class="text-red-500 text-sm mt-1">
+                {{ userNameError }}
+              </p>
             </div>
             <!-- Поле "Ваш номер телефона" -->
             <div class="flex flex-col w-full gap-y-[10px]">
@@ -167,11 +204,19 @@
                 >Ваш номер телефона</label
               >
               <input
+                v-model="userPhone"
                 type="tel"
                 id="phone"
                 placeholder="+7 (999) 999-99-99"
-                class="bg-transparent border border-[#72C95E] rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                class="bg-transparent border rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                :class="userPhoneError ? 'border-red-500' : 'border-[#72C95E]'"
+                @input="validateUserPhone"
+                @blur="validateUserPhone"
               />
+              <!-- {{ edit_2 }} Отображение ошибки для телефона -->
+              <p v-if="userPhoneError" class="text-red-500 text-sm mt-1">
+                {{ userPhoneError }}
+              </p>
             </div>
             <!-- Поле "Ваш электронная почта" -->
             <div class="flex flex-col w-full gap-y-[10px]">
@@ -181,11 +226,19 @@
                 >Ваш электронная почта</label
               >
               <input
+                v-model="userEmail"
                 type="email"
                 id="email"
                 placeholder="example@gmail.com"
-                class="bg-transparent border border-[#72C95E] rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                class="bg-transparent border rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                :class="userEmailError ? 'border-red-500' : 'border-[#72C95E]'"
+                @input="validateUserEmail"
+                @blur="validateUserEmail"
               />
+              <!-- {{ edit_3 }} Отображение ошибки для email -->
+              <p v-if="userEmailError" class="text-red-500 text-sm mt-1">
+                {{ userEmailError }}
+              </p>
             </div>
           </div>
 
@@ -225,12 +278,14 @@
             </p>
           </div>
 
-          <!-- Кнопка "ОТПРАВИТЬ" -->
+          <!-- {{ edit_4 }} Добавляем обработчик submitOrder к кнопке и отключаем ее при невалидных данных -->
           <button
+            @click="submitOrder"
+            :disabled="!isFormValid"
             class="bg-[#72C95E] rounded-lg p-[20px_15px] flex items-center justify-center w-full text-black text-xl font-prosto"
             :class="
-              !checked
-                ? 'bg-[#72C95E]/50 cursor-default'
+              !isFormValid
+                ? 'bg-[#72C95E]/50 cursor-not-allowed'
                 : 'hover:text-white cursor-pointer active:scale-90 active:shadow-2xl'
             "
           >
@@ -268,8 +323,119 @@ const checked = ref<boolean>(false);
 const emit = defineEmits(["close"]);
 const currentRacket = ref<IRacket | null>(props.racketData);
 
+// {{ edit_5 }} Новые реактивные переменные для полей формы
+const userName = ref<string>("");
+const userPhone = ref<string>("");
+const userEmail = ref<string>("");
+
+// {{ edit_5 }} Новые реактивные переменные для хранения ошибок валидации
+const userNameError = ref<string>("");
+const userPhoneError = ref<string>("");
+const userEmailError = ref<string>("");
+
+// {{ edit_6 }} Функции валидации
+const validateUserName = () => {
+  if (userName.value.trim() === "") {
+    userNameError.value = "Имя не может быть пустым.";
+  } else if (!/^[a-zA-Zа-яА-ЯёЁ\s-]+$/u.test(userName.value)) {
+    userNameError.value = "Имя может содержать только буквы, пробелы и дефисы.";
+  } else {
+    userNameError.value = "";
+  }
+};
+
+const validateUserPhone = () => {
+  if (userPhone.value.trim() === "") {
+    userPhoneError.value = "Телефон не может быть пустым.";
+  } else {
+    // Regex для формата XXXXXXXXXXX (11 цифр)
+    const pattern11Digits = /^\d{11}$/;
+    // Regex для формата +7 (XXX) XXX-XX-XX с учетом опциональных пробелов, скобок и дефисов
+    const patternPlus7Flexible =
+      /^\+7\s*(\(\d{3}\)|\d{3})\s*\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$/;
+
+    if (
+      !pattern11Digits.test(userPhone.value) &&
+      !patternPlus7Flexible.test(userPhone.value)
+    ) {
+      userPhoneError.value =
+        "Некорректный формат телефона. Ожидается: 11 цифр (например, 89XXXXXXXXX) или формат +7 (XXX) XXX-XX-XX.";
+    } else {
+      userPhoneError.value = "";
+    }
+  }
+};
+
+const validateUserEmail = () => {
+  if (userEmail.value.trim() === "") {
+    userEmailError.value = "Email не может быть пустым.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail.value)) {
+    userEmailError.value = "Некорректный формат email.";
+  } else {
+    userEmailError.value = "";
+  }
+};
+
+// {{ edit_7 }} Computed-свойство для общей валидации формы
+const isFormValid = computed(() => {
+  return (
+    checked.value &&
+    userName.value.trim() !== "" &&
+    userPhone.value.trim() !== "" &&
+    userEmail.value.trim() !== "" &&
+    !userNameError.value &&
+    !userPhoneError.value &&
+    !userEmailError.value
+  );
+});
+
+// {{ edit_3 }} Новые реактивные переменные для уведомлений
+const showNotification = ref<boolean>(false);
+const notificationMessage = ref<string>("");
+const notificationType = ref<"success" | "error" | "warning">("success");
+let notificationTimeout: ReturnType<typeof setTimeout> | null = null; // Для очистки предыдущих таймаутов
+
+// {{ edit_4 }} Computed-свойство для динамических классов уведомлений
+const notificationClasses = computed(() => {
+  return {
+    "bg-green-600": notificationType.value === "success",
+    "bg-red-600": notificationType.value === "error",
+    "bg-yellow-600": notificationType.value === "warning",
+  };
+});
+
+// {{ edit_5 }} Функция для отображения уведомлений
+const displayNotification = (
+  message: string,
+  type: "success" | "error" | "warning",
+  duration: number = 4000
+) => {
+  if (notificationTimeout) {
+    clearTimeout(notificationTimeout);
+  }
+  notificationMessage.value = message;
+  notificationType.value = type;
+  showNotification.value = true;
+  notificationTimeout = setTimeout(() => {
+    showNotification.value = false;
+  }, duration);
+};
+
 const closeModal = () => {
   emit("close");
+  // {{ edit_8 }} Очищаем форму и ошибки при закрытии модального окна
+  userName.value = "";
+  userPhone.value = "";
+  userEmail.value = "";
+  checked.value = false;
+  userNameError.value = "";
+  userPhoneError.value = "";
+  userEmailError.value = "";
+  // {{ edit_6 }} Скрываем уведомление при закрытии модального окна
+  if (notificationTimeout) {
+    clearTimeout(notificationTimeout);
+  }
+  showNotification.value = false;
 };
 
 const itemQuantity = ref(1);
@@ -319,6 +485,79 @@ const removeItem = () => {
   currentRacket.value = null;
 };
 
+// {{ edit_9 }} Функция для отправки данных заказа
+const submitOrder = async () => {
+  // Вызываем все валидации перед отправкой
+  validateUserName();
+  validateUserPhone();
+  validateUserEmail();
+
+  // Дополнительная проверка на согласие и общая валидация
+  if (!checked.value) {
+    // {{ edit_7 }} Заменяем alert на displayNotification
+    displayNotification(
+      "Пожалуйста, дайте согласие на обработку персональных данных.",
+      "warning"
+    );
+    return;
+  }
+
+  if (!isFormValid.value) {
+    // {{ edit_8 }} Заменяем alert на displayNotification
+    displayNotification("Пожалуйста, заполните все поля корректно.", "error");
+    return;
+  }
+
+  const orderData = {
+    userName: userName.value,
+    userPhone: userPhone.value,
+    userEmail: userEmail.value,
+    racket: {
+      name: racketName.value,
+      quantity: itemQuantity.value,
+      totalPrice: totalPrice.value,
+    },
+  };
+
+  try {
+    const response = await fetch(
+      "http://localhost/backend/api/send_order.php",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.success) {
+      // {{ edit_9 }} Заменяем alert на displayNotification
+      displayNotification("Ваш заказ успешно отправлен!", "success");
+      closeModal();
+    } else {
+      // {{ edit_10 }} Отображение ошибок, полученных от сервера
+      let errorMessage = `Произошла ошибка при отправке заказа: ${
+        result.message || "Неизвестная ошибка"
+      }`;
+      if (result.errors && Array.isArray(result.errors)) {
+        errorMessage += "\n\nДетали:\n" + result.errors.join("\n");
+      }
+      displayNotification(errorMessage, "error", 7000); // Даем больше времени для подробной ошибки
+      console.error("Ошибка при отправке заказа:", result);
+    }
+  } catch (error) {
+    console.error("Ошибка при отправке заказа:", error);
+    // {{ edit_11 }} Заменяем alert на displayNotification
+    displayNotification(
+      "Произошла ошибка при отправке заказа. Пожалуйста, попробуйте еще раз.",
+      "error"
+    );
+  }
+};
+
 watch(
   () => props.racketData,
   (newVal) => {
@@ -335,9 +574,28 @@ watch(
     if (newVal && props.racketData) {
       itemQuantity.value = 1;
       currentRacket.value = props.racketData;
+    } else if (!newVal) {
+      // {{ edit_11 }} Очищаем форму и ошибки при скрытии модального окна
+      userName.value = "";
+      userPhone.value = "";
+      userEmail.value = "";
+      checked.value = false;
+      userNameError.value = "";
+      userPhoneError.value = "";
+      userEmailError.value = "";
     }
   }
 );
 </script>
 
-<style scoped></style>
+<style scoped>
+/* {{ edit_12 }} Добавляем стили для анимации перехода */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
