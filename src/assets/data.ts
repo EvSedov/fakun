@@ -1,8 +1,13 @@
-import racketX31Img from "@/assets/images/racket-x31.png";
-import racketAbaddonImg from "@/assets/images/racket-abaddon.png";
-import racketAzraelImg from "@/assets/images/racket-azrael.png";
-import racketAstarothImg from "@/assets/images/racket-astaroth.png";
-import racketJerichoImg from "@/assets/images/racket-jericho.png";
+import racketX31Img from "@/assets/images/rackets/X31_black.png";
+import racketAbaddonRedWhiteImg from "@/assets/images/rackets/Abaddon_red_white.webp";
+import racketAbaddonYellowImg from "@/assets/images/rackets/Abaddon_yellow.png";
+import racketAzraelBlackWhiteImg from "@/assets/images/rackets/Azrael_black-white.png";
+import racketAzraelRedYellowImg from "@/assets/images/rackets/Azrael_red-yellow.png";
+import racketAstarothBlackImg from "@/assets/images/rackets/Astaroth_black.png";
+import racketAstarothBlueYellowImg from "@/assets/images/rackets/Astaroth_blue-yellow.png";
+import racketAstarothRedWhiteImg from "@/assets/images/rackets/Astaroth_red-white.png";
+import racketAstarothGreenYellowImg from "@/assets/images/rackets/Astaroth_green-yellow.png";
+import racketJerichoBlackImg from "@/assets/images/rackets/Jericho_black.png";
 
 export interface IRacketColorOption {
   name: string;
@@ -122,21 +127,15 @@ const racketAbaddon = {
   id: "racket-abaddon",
   name: "FAKUN ABADDON",
   colorOptions: {
-    black: {
-      color: ALL_RACKET_COLORS.redGold,
-      image: racketAbaddonImg,
-      ozonLink:
-        "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-x31-black-edition-s-sherohovatoy-poverhnostyu-2060278771/?at=r2t4yXjOZTGvDrzkTjM7WlguwPpmwAU9Rmpzf8nENz5&from_sku=2055797983&oos_search=false",
-    },
     whiteRed: {
       color: ALL_RACKET_COLORS.whiteRed,
-      image: racketAbaddonImg,
+      image: racketAbaddonRedWhiteImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-abaddon-2055797983/?at=r2t4yXjOZTGvDrzkTjM7WlguwPpmwAU9Rmpzf8nENz5",
     },
     gold: {
       color: ALL_RACKET_COLORS.gold,
-      image: racketAbaddonImg,
+      image: racketAbaddonYellowImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-abaddon-2055780054/?at=A6tGxMo5Oc5KgM2zuNk1BVrcm3jY9mHWM5D69CxGXOw3",
     },
@@ -196,13 +195,13 @@ const racketAzrael = {
   colorOptions: {
     redGold: {
       color: ALL_RACKET_COLORS.redGold,
-      image: racketAzraelImg,
+      image: racketAzraelRedYellowImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-azrael-2055917733/?at=46tRZGWx5SX1Zz9kF4WWG8OSygX1Rks8QBAWDiDWqgwz",
     },
     blackWhite: {
       color: ALL_RACKET_COLORS.blackWhite,
-      image: racketAzraelImg,
+      image: racketAzraelBlackWhiteImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-azrael-s-sherohovatoy-poverhnostyu-2055938192/?at=qQtJgGrvNcvV6pWYSwqXElViwBMZMPcZLO7ZMir8y1mD",
     },
@@ -254,25 +253,25 @@ const racketAstaroth = {
   colorOptions: {
     black: {
       color: ALL_RACKET_COLORS.black,
-      image: racketAstarothImg,
+      image: racketAstarothBlackImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-s-sherohovatoy-poverhnostyu-2060298115/?at=Brtzx3mNKSOElqKMTzrvVl9Ty5ArkOtNMkXKguVE7RM6",
     },
     greenGold: {
       color: ALL_RACKET_COLORS.greenGold,
-      image: racketAstarothImg,
+      image: racketAstarothGreenYellowImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-2055803035/?at=w0tg5XQnxTLr74RoSg0YnAMFJoZ6k4fA23x87C1WjJE6",
     },
     redWhite: {
       color: ALL_RACKET_COLORS.redWhite,
-      image: racketAstarothImg,
+      image: racketAstarothRedWhiteImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-1953315293/?at=k2toDZ0vBsN4wLvri0rlOjohG5BpqPhm38Y5lHAWL7NY",
     },
     blueGold: {
       color: ALL_RACKET_COLORS.blueGold,
-      image: racketAstarothImg,
+      image: racketAstarothBlueYellowImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-astaroth-2055929783/?at=w0tg5XQnxTXrpGZZi52QGJLsV5KWB8hgmDYzqSEqxkzB",
     },
@@ -329,7 +328,7 @@ const racketJericho = {
   colorOptions: {
     black: {
       color: ALL_RACKET_COLORS.black,
-      image: racketJerichoImg,
+      image: racketJerichoBlackImg,
       ozonLink:
         "https://www.ozon.ru/product/raketka-dlya-padel-tennisa-fakun-jericho-2055755219/?at=qQtJgGrvNc3k6ZGWCAkR1P2u9zEmy7IJV41v0TrDrJRM",
     },
