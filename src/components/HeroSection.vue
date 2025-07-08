@@ -11,8 +11,8 @@
       preload="auto"
       class="absolute inset-0 w-full h-full object-cover z-0"
     >
-      <source src="/images/hero-background.webm" type="video/webm" />
-      <source src="/images/hero-background.mp4" type="video/mp4" />
+      <source src="/video/hero-background.mp4" type="video/mp4" />
+      <source src="/video/hero-background.webm" type="video/webm" />
       Ваш браузер не поддерживает видео фон.
     </video>
     <!-- Overlay -->

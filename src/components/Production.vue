@@ -77,11 +77,18 @@ import productionGif from "@/assets/images/production-process.gif";
       <div
         class="w-[314px] h-[526px] border border-[#72C95E] rounded-md overflow-hidden flex-shrink-0"
       >
-        <img
-          :src="productionGif"
-          alt="Производство Fakun"
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
           class="w-full h-full object-cover"
-        />
+        >
+          <source src="/video/production-process.mp4" type="video/mp4" />
+          <source src="/video/production-process.webm" type="video/webm" />
+          Ваш браузер не поддерживает видео фон.
+        </video>
       </div>
     </div>
   </section>
