@@ -108,7 +108,7 @@ onUnmounted(() => {
           class="max-w-[398px] flex flex-col items-center justify-start min-h-0"
         >
           <div
-            class="bg-white w-full h-auto flex items-center justify-center mb-6 rounded-[10px]"
+            class="bg-white w-full h-[490px] flex items-center justify-center mb-6 rounded-[10px]"
           >
             <img
               :src="currentRacketOption.image"
