@@ -27,9 +27,35 @@
               >+7 993 281 12 65</span
             >
           </a>
-          <img :src="phone" alt="Phone" class="w-5 h-5" />
-          <img :src="whatsapp" alt="WhatsApp" class="w-5 h-5" />
-          <img :src="telegram" alt="Telegram" class="w-5 h-5" />
+          <a href="tel:+79932811265" target="_blank" class="flex items-center">
+            <img
+              :src="phone"
+              alt="Phone"
+              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+            />
+          </a>
+          <a
+            href="https://wa.me/79932811265"
+            target="_blank"
+            class="flex items-center"
+          >
+            <img
+              :src="whatsapp"
+              alt="WhatsApp"
+              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+            />
+          </a>
+          <a
+            href="https://t.me/PadelFakun"
+            target="_blank"
+            class="flex items-center"
+          >
+            <img
+              :src="telegram"
+              alt="Telegram"
+              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+            />
+          </a>
         </div>
         <div class="flex items-center gap-2">
           <a href="tel:+34636063866" class="flex items-center gap-2">
@@ -43,8 +69,28 @@
               >+34 636 06 38 66</span
             >
           </a>
-          <img :src="whatsapp" alt="WhatsApp" class="w-5 h-5" />
-          <img :src="telegram" alt="Telegram" class="w-5 h-5" />
+          <a
+            href="https://wa.me/79932811265"
+            target="_blank"
+            class="flex items-center"
+          >
+            <img
+              :src="whatsapp"
+              alt="WhatsApp"
+              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+            />
+          </a>
+          <a
+            href="https://t.me/PadelFakun"
+            target="_blank"
+            class="flex items-center"
+          >
+            <img
+              :src="telegram"
+              alt="Telegram"
+              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+            />
+          </a>
           <span class="text-[14px] text-white font-evolventa"
             >(говорим по-русски)</span
           >
