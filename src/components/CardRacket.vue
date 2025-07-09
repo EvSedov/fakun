@@ -1,8 +1,8 @@
 <template>
-  <div class="w-[310px] rounded-[10px] overflow-hidden shadow-lg">
+  <div class="rounded-[10px] shadow-lg min-h-0">
     <!-- Верхняя часть карточки (изображение) -->
     <div
-      class="bg-white flex justify-center items-center h-[315px] rounded-t-[10px]r"
+      class="bg-white flex justify-center items-center rounded-t-[10px] overflow-hidden"
     >
       <img
         :src="racket.colorOptions[racket.selectedColorKey].image"
@@ -12,9 +12,7 @@
       />
     </div>
     <!-- Нижняя часть карточки (детали) -->
-    <div
-      class="bg-[#2A2A2A] p-5 flex flex-col gap-[15px] rounded-b-[10px] h-[240px]"
-    >
+    <div class="bg-[#2A2A2A] p-5 flex flex-col gap-[15px] rounded-b-[10px]">
       <h3
         class="text-white font-prosto text-[20px] leading-[1.235em] hover:text-[#72C95E] cursor-pointer"
         @click="emit('open-details', racket)"
