@@ -93,7 +93,7 @@
             </svg>
           </a>
           <a
-            href="https://t.me/Padel_Fakun"
+            href="https://t.me/PadelFakun"
             target="_blank"
             class="flex justify-center items-center text-white transition text-lg w-5 h-5 hover:text-[#72C95E]"
           >
