@@ -58,7 +58,7 @@
         <a
           :href="racket.colorOptions[racket.selectedColorKey].ozonLink"
           target="_blank"
-          class="px-[10px] py-0 rounded-[5px] border border-[#005BFF] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#005BFF]"
+          class="px-[10px] py-0 rounded-[5px] border border-[#005BFF] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#005BFF] cursor-pointer"
         >
           OZON
         </a>
@@ -70,7 +70,7 @@
       <!-- Кнопка "Заказать" с новым обработчиком события -->
       <button
         @click="emit('open-order-modal', racket)"
-        class="w-29.5 px-[15px] py-[10px] rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black hover:border-[#72C95E] transition-colors duration-200"
+        class="w-29.5 px-[15px] py-[10px] rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black hover:border-[#72C95E] transition-colors duration-200 cursor-pointer"
       >
         Заказать
       </button>

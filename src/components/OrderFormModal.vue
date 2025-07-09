@@ -38,7 +38,7 @@
       <!-- {{ edit_3 }} Добавляем обработчик клика для кнопки закрытия -->
       <button
         @click="closeModal"
-        class="absolute top-[-20px] right-[-20px] m-4 w-10 h-10 flex items-center justify-center rounded-full border border-white/50 z-55 bg-gray-700 hover:bg-gray-900"
+        class="absolute top-[-20px] right-[-20px] m-4 w-10 h-10 flex items-center justify-center rounded-full border border-white/50 z-55 bg-gray-700 hover:bg-gray-900 cursor-pointer"
       >
         <svg
           class="w-4 h-4 text-white"
@@ -92,7 +92,7 @@
           >
             <button
               @click="decrementQuantity"
-              class="w-[15px] h-[15px] rounded-full border border-white/50 flex items-center justify-center hover:bg-white/50"
+              class="w-[15px] h-[15px] rounded-full border border-white/50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
             >
               <svg
                 class="w-[9.9px] h-[1px] text-white"
@@ -114,7 +114,7 @@
             >
             <button
               @click="incrementQuantity"
-              class="w-[15px] h-[15px] rounded-full border border-white/50 border-opacity-50 flex items-center justify-center hover:bg-white/50"
+              class="w-[15px] h-[15px] rounded-full border border-white/50 border-opacity-50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
             >
               <svg
                 class="w-[9px] h-[9px] text-white"
@@ -138,7 +138,7 @@
           <!-- Кнопка удаления товара -->
           <button
             @click="removeItem"
-            class="w-[28.28px] h-[28.28px] rounded-full border border-white border-opacity-50 flex items-center justify-center"
+            class="w-[28.28px] h-[28.28px] rounded-full border border-white border-opacity-50 flex items-center justify-center cursor-pointer"
           >
             <svg
               class="w-[8.49px] h-[8.49px] text-white"

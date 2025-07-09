@@ -82,7 +82,7 @@ onUnmounted(() => {
     <div class="p-3 relative">
       <!-- Кнопка закрытия -->
       <button
-        class="absolute top-0.5 right-0.5 text-white w-8 h-8 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-900 transition-colors z-55 border-white border-2"
+        class="absolute top-0.5 right-0.5 text-white w-8 h-8 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-900 transition-colors z-55 border-white border-2 cursor-pointer"
         @click="closeModal"
       >
         <svg
@@ -120,14 +120,14 @@ onUnmounted(() => {
           <div class="flex gap-4 mb-6 justify-start items-center w-full">
             <button
               @click="emit('open-order-modal', racket)"
-              class="px-5 py-3 rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black transition-colors duration-200"
+              class="px-5 py-3 rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black transition-colors duration-200 cursor-pointer"
             >
               Заказать
             </button>
             <a
               :href="racket.colorOptions[racket.selectedColorKey].ozonLink"
               target="_blank"
-              class="px-5 py-3 rounded-[5px] border border-[#005BFF] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#005BFF] transition-colors duration-200"
+              class="px-5 py-3 rounded-[5px] border border-[#005BFF] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#005BFF] transition-colors duration-200 cursor-pointer"
             >
               OZON
             </a>
