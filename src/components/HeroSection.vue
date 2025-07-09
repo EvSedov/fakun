@@ -28,20 +28,22 @@
         <img
           src="/images/logo-part1.png"
           alt="Fakun Logo Part 1"
-          class="h-[168px] w-[141px] filter-white"
+          class="w-16 h-auto sm:w-26 sm:h-auto md:h-[168px] md:w-[141px] filter-white"
         />
         <img
           src="/images/logo-part2.png"
           alt="Fakun Logo Part 2"
-          class="h-[65px] w-[581px] ml-[26px] mb-[20px] filter-white"
+          class="w-50 h-auto sm:w-80 sm:h-10 md:h-[65px] md:w-[581px] ml-[26px] mb-[20px] filter-white"
         />
       </div>
 
       <h2
-        class="text-[48px] font-bold font-prosto mb-3 leading-[1.1] drop-shadow-hero"
+        class="text-3xl sm:text-[38px] md:text-[48px] font-bold font-prosto mb-3 leading-[1.1] drop-shadow-hero"
       >
         <span class="text-white font-prosto">РАКЕТКИ ДЛЯ </span
-        ><span class="text-[#72C95E] font-prosto">ПАДЕЛ-ТЕННИСА</span>
+        ><span class="text-[#72C95E] font-prosto text-nowrap"
+          >ПАДЕЛ-ТЕННИСА</span
+        >
       </h2>
 
       <!-- Описание: светло-серый, тень -->
