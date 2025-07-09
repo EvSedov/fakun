@@ -2,7 +2,7 @@
   <header
     id="main-header"
     ref="headerElement"
-    class="backdrop-blur-md text-white py-4 px-10 fixed top-0 left-0 w-full z-20"
+    class="backdrop-blur-md text-white py-4 px-4 sm:px-10 fixed top-0 left-0 w-full z-20"
   >
     <div class="container mx-auto flex justify-around items-center flex-wrap">
       <!-- Разделы навигации -->
@@ -52,7 +52,9 @@
       </nav>
 
       <!-- Контакты и соцсети -->
-      <div class="flex items-center space-x-6">
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center sm:space-x-6"
+      >
         <a
           href="tel:+79932811265"
           class="flex items-center space-x-2 text-white font-prosto text-[17px] hover:text-[#72C95E] transition"
@@ -128,12 +130,119 @@
           >
         </div>
       </div>
+
+      <!-- Мобильное меню (пока скрыто) -->
+      <div class="md:hidden flex items-center">
+        <Drawer
+          direction="right"
+          :open="isDrawerOpen"
+          @close="isDrawerOpen = false"
+        >
+          <DrawerTrigger as-child>
+            <button
+              @click="isDrawerOpen = true"
+              class="text-white focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </DrawerTrigger>
+          <DrawerContent class="bg-[#2A2A2A]">
+            <DrawerHeader>
+              <DrawerTitle class="text-[#72C95E] text-lg">Меню</DrawerTitle>
+            </DrawerHeader>
+            <nav>
+              <ul class="flex flex-col space-y-4 p-4 text-[#72C95E]">
+                <li>
+                  <a
+                    href="#about"
+                    @click="scrollToSectionAndCloseDrawer"
+                    class="block py-2 text-lg hover:text-white"
+                    >О НАС</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#products"
+                    @click="scrollToSectionAndCloseDrawer"
+                    class="block py-2 text-lg hover:text-white"
+                    >РАКЕТКИ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#production"
+                    @click="scrollToSectionAndCloseDrawer"
+                    class="block py-2 text-lg hover:text-white"
+                    >ПРОИЗВОДСТВО</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#reviews"
+                    @click="scrollToSectionAndCloseDrawer"
+                    class="block py-2 text-lg hover:text-white"
+                    >ОТЗЫВЫ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    @click="scrollToSectionAndCloseDrawer"
+                    class="block py-2 text-lg hover:text-white"
+                    >КОНТАКТЫ</a
+                  >
+                </li>
+              </ul>
+            </nav>
+            <DrawerFooter>
+              <DrawerClose as-child>
+                <button
+                  @click="isDrawerOpen = false"
+                  class="px-4 py-2.5 rounded-[5px] border border-[#72C95E] text-white font-evolventa text-[16px] flex items-center justify-center hover:bg-[#72C95E] hover:text-black hover:border-[#72C95E] transition-colors duration-200 cursor-pointer font-semibold"
+                >
+                  Закрыть
+                </button>
+              </DrawerClose>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { scrollToSection } from "../utils/scroll"; // Импортируем функцию прокрутки
+import { ref } from "vue";
+import { scrollToSection } from "../utils/scroll";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+
+const isDrawerOpen = ref(false);
+
+const scrollToSectionAndCloseDrawer = (event: Event) => {
+  scrollToSection(event);
+  isDrawerOpen.value = false;
+};
 </script>
 
 <style scoped></style>
