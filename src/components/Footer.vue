@@ -3,10 +3,12 @@
     <!-- Зеленая линия сверху -->
     <div class="absolute top-0 left-0 w-full h-[2px] bg-[#72C95E]"></div>
     <div
-      class="max-w-6xl mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:gap-0 items-center"
+      class="max-w-6xl md:mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:gap-0 items-center"
     >
       <!-- Контакты (по левому краю) -->
-      <div class="flex flex-col gap-2.5 min-w-[260px] items-start">
+      <div
+        class="flex flex-col gap-5 md:gap-2.5 min-w-[260px] items-center md:items-start px-4 md:px-0"
+      >
         <img
           :src="footerCompanyLogo"
           alt="Fakun logo"
@@ -15,7 +17,9 @@
         <span class="font-bold text-[16px] text-white font-evolventa"
           >Контакты</span
         >
-        <div class="flex items-center gap-2">
+        <div
+          class="flex items-center justify-center md:justify-start gap-2 text-center md:text-left flex-wrap"
+        >
           <a href="tel:+79932811265" class="flex items-center gap-2">
             <img
               :src="flagRussia"
@@ -27,37 +31,45 @@
               >+7 993 281 12 65</span
             >
           </a>
-          <a href="tel:+79932811265" target="_blank" class="flex items-center">
-            <img
-              :src="phone"
-              alt="Phone"
-              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
-            />
-          </a>
-          <a
-            href="https://wa.me/79932811265"
-            target="_blank"
-            class="flex items-center"
-          >
-            <img
-              :src="whatsapp"
-              alt="WhatsApp"
-              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
-            />
-          </a>
-          <a
-            href="https://t.me/PadelFakun"
-            target="_blank"
-            class="flex items-center"
-          >
-            <img
-              :src="telegram"
-              alt="Telegram"
-              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
-            />
-          </a>
+          <div class="flex gap-2 text-center md:text-left">
+            <a
+              href="tel:+79932811265"
+              target="_blank"
+              class="flex items-center"
+            >
+              <img
+                :src="phone"
+                alt="Phone"
+                class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+              />
+            </a>
+            <a
+              href="https://wa.me/79932811265"
+              target="_blank"
+              class="flex items-center"
+            >
+              <img
+                :src="whatsapp"
+                alt="WhatsApp"
+                class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+              />
+            </a>
+            <a
+              href="https://t.me/PadelFakun"
+              target="_blank"
+              class="flex items-center"
+            >
+              <img
+                :src="telegram"
+                alt="Telegram"
+                class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+              />
+            </a>
+          </div>
         </div>
-        <div class="flex items-center gap-2">
+        <div
+          class="flex items-center justify-center md:justify-start gap-2 text-center md:text-left flex-wrap"
+        >
           <a href="tel:+34636063866" class="flex items-center gap-2">
             <img
               :src="flagSpain"
@@ -69,33 +81,37 @@
               >+34 636 06 38 66</span
             >
           </a>
-          <a
-            href="https://wa.me/79932811265"
-            target="_blank"
-            class="flex items-center"
-          >
-            <img
-              :src="whatsapp"
-              alt="WhatsApp"
-              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
-            />
-          </a>
-          <a
-            href="https://t.me/PadelFakun"
-            target="_blank"
-            class="flex items-center"
-          >
-            <img
-              :src="telegram"
-              alt="Telegram"
-              class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
-            />
-          </a>
-          <span class="text-[14px] text-white font-evolventa"
-            >(говорим по-русски)</span
-          >
+          <div class="flex gap-2 text-center md:text-left">
+            <a
+              href="https://wa.me/79932811265"
+              target="_blank"
+              class="flex items-center"
+            >
+              <img
+                :src="whatsapp"
+                alt="WhatsApp"
+                class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+              />
+            </a>
+            <a
+              href="https://t.me/PadelFakun"
+              target="_blank"
+              class="flex items-center"
+            >
+              <img
+                :src="telegram"
+                alt="Telegram"
+                class="w-5 h-5 hover:brightness-0 hover:invert cursor-pointer"
+              />
+            </a>
+            <span class="text-[14px] text-white font-evolventa text-nowrap"
+              >(говорим по-русски)</span
+            >
+          </div>
         </div>
-        <div class="flex flex-col">
+        <div
+          class="flex flex-col items-center md:items-start text-center md:text-left"
+        >
           <a href="mailto:padelfakun@yandex.ru" class="m-0 p-0">
             <span
               class="text-[14px] text-white font-evolventa hover:text-[#72C95E]"
@@ -108,7 +124,9 @@
         </div>
       </div>
       <!-- Компания -->
-      <div class="flex flex-col gap-4 min-w-[120px]">
+      <div
+        class="flex flex-col gap-4 min-w-[120px] items-center md:items-start text-center md:text-left"
+      >
         <span class="font-bold text-[16px] text-white font-evolventa"
           >Компания</span
         >
@@ -141,8 +159,12 @@
       </div>
 
       <!-- Социальные сети и маркетплейс -->
-      <div class="flex flex-col gap-7.5 min-w-[180px] items-start">
-        <div class="flex flex-col gap-2.5">
+      <div
+        class="flex flex-col gap-7.5 min-w-[180px] items-center md:items-start"
+      >
+        <div
+          class="flex flex-col gap-2.5 items-center md:items-start text-center md:text-left"
+        >
           <span class="font-bold text-[16px] text-white font-evolventa"
             >Социальные сети</span
           >
@@ -158,7 +180,9 @@
             />
           </a>
         </div>
-        <div class="flex flex-col gap-2.5">
+        <div
+          class="flex flex-col gap-2.5 items-center md:items-start text-center md:text-left"
+        >
           <span class="font-bold text-[16px] text-white font-evolventa"
             >Наши ракетки на маркетплейс</span
           >
