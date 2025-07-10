@@ -14,7 +14,7 @@ import productionGif from "@/assets/images/production-process.gif";
       ПРОИЗВОДСТВО
     </h2>
     <div
-      class="max-w-[1152px] mx-auto flex flex-col-reverse md:flex-row gap-[81px] items-start"
+      class="max-w-[1152px] mx-auto flex flex-col-reverse lg:flex-row gap-[81px] items-start"
     >
       <!-- {{ block_2 }} Левая часть: текст -->
       <div class="flex-1 flex flex-col gap-[30px]">
