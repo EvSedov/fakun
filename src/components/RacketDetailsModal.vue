@@ -101,12 +101,53 @@ onUnmounted(() => {
         </svg>
       </button>
       <div
-        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1000px] w-full max-h-[90vh] flex flex-col md:flex-row gap-12.5 px-10 py-15 overflow-y-auto"
+        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1000px] w-full max-h-[90vh] flex flex-col lg:flex-row gap-12.5 px-10 py-15 overflow-y-auto"
       >
         <!-- Левая часть: Изображение ракетки, кнопки, описание -->
         <div
-          class="max-w-[398px] flex flex-col items-center justify-start min-h-0"
+          class="max-w-[398px] flex flex-col items-center justify-start min-h-0 mx-auto shrink-0"
         >
+          <div class="lg:hidden w-full mb-6">
+            <h2 class="text-[#72C95E] text-[20px] mb-4">
+              {{ racket.name }}
+            </h2>
+
+            <div
+              class="flex justify-between items-center flex-wrap gap-2.5 mb-4"
+            >
+              <!-- Цветовые опции -->
+              <div class="flex gap-3">
+                <div
+                  v-for="key in Object.keys(racket.colorOptions)"
+                  :key="key"
+                  class="w-7 h-7 rounded-full shadow-md cursor-pointer flex-shrink-0 flex items-center justify-center hover:scale-125"
+                  :class="{
+                    'shadow-black/70 shadow-2xl scale-125':
+                      key === currentRacket.selectedColorKey,
+                  }"
+                  @click="selectColor(key as string)"
+                >
+                  <div
+                    v-if="!Array.isArray(ALL_RACKET_COLORS[key as string].colors)"
+                    class="w-full h-full rounded-full"
+                    :style="{ backgroundColor: ALL_RACKET_COLORS[key as string].colors as string }"
+                  ></div>
+                  <div
+                    v-else
+                    class="w-full h-full rounded-full flex items-center justify-center"
+                    :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[0] }"
+                  >
+                    <div
+                      class="w-4 h-4 rounded-full"
+                      :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[1] }"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <h3 class="text-[#72C95E] text-[20px]">{{ racket.price }} ₽</h3>
+            </div>
+          </div>
+
           <div
             class="bg-white w-full h-[490px] flex items-center justify-center mb-6 rounded-[10px]"
           >
@@ -139,43 +180,48 @@ onUnmounted(() => {
         </div>
 
         <!-- Правая часть: Детали и характеристики -->
-        <div class="w-full text-white min-h-0">
-          <div class="flex justify-between items-center mb-2.5">
-            <h2 class="text-[#72C95E] text-[20px]">
-              {{ racket.name }}
-            </h2>
-            <!-- Цветовые опции -->
-            <div class="flex gap-3">
-              <div
-                v-for="key in Object.keys(racket.colorOptions)"
-                :key="key"
-                class="relative w-7 h-7 rounded-full shadow-md cursor-pointer flex-shrink-0 flex items-center justify-center hover:scale-125"
-                :class="{
-                  'shadow-black/70 shadow-2xl scale-125':
-                    key === currentRacket.selectedColorKey,
-                }"
-                @click="selectColor(key as string)"
-              >
+        <div class="max-w-[398px] lg:w-full text-white min-h-0 mx-auto">
+          <div class="hidden lg:block">
+            <div class="flex justify-between items-center mb-2.5 flex-wrap">
+              <h2 class="text-[#72C95E] text-[20px] mb-2.5 sm:mb-0">
+                {{ racket.name }}
+              </h2>
+              <!-- Цветовые опции -->
+              <div class="flex gap-3">
                 <div
-                  v-if="!Array.isArray(ALL_RACKET_COLORS[key as string].colors)"
-                  class="w-full h-full rounded-full"
-                  :style="{ backgroundColor: ALL_RACKET_COLORS[key as string].colors as string }"
-                ></div>
-                <div
-                  v-else
-                  class="relative w-full h-full rounded-full flex items-center justify-center"
-                  :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[0] }"
+                  v-for="key in Object.keys(racket.colorOptions)"
+                  :key="key"
+                  class="w-7 h-7 rounded-full shadow-md cursor-pointer flex-shrink-0 flex items-center justify-center hover:scale-125"
+                  :class="{
+                    'shadow-black/70 shadow-2xl scale-125':
+                      key === currentRacket.selectedColorKey,
+                  }"
+                  @click="selectColor(key as string)"
                 >
                   <div
-                    class="w-4 h-4 rounded-full"
-                    :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[1] }"
+                    v-if="!Array.isArray(ALL_RACKET_COLORS[key as string].colors)"
+                    class="w-full h-full rounded-full"
+                    :style="{ backgroundColor: ALL_RACKET_COLORS[key as string].colors as string }"
                   ></div>
+                  <div
+                    v-else
+                    class="w-full h-full rounded-full flex items-center justify-center"
+                    :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[0] }"
+                  >
+                    <div
+                      class="w-4 h-4 rounded-full"
+                      :style="{ backgroundColor: (ALL_RACKET_COLORS[key as string].colors as [string, string])[1] }"
+                    ></div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <h3 class="text-[#72C95E] text-[20px] mb-5">
+              {{ racket.price }} ₽
+            </h3>
           </div>
 
-          <h3 class="text-[#72C95E] text-[20px] mb-5">{{ racket.price }} ₽</h3>
           <!-- Секции характеристик -->
           <div v-if="racket.characteristics" class="space-y-2.5 text-[14px]">
             <div v-for="item of racket.characteristics">
