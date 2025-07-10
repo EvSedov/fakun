@@ -5,7 +5,7 @@ import productionGif from "@/assets/images/production-process.gif";
 
 <template>
   <!-- {{ block_1 }} Контейнер секции -->
-  <section id="production" class="bg-[#2A2A2A] py-7.5">
+  <section id="production" class="bg-[#2A2A2A] py-7.5 px-4">
     <!-- Заголовок -->
     <h2
       class="font-prosto text-[24px] text-[#72C95E] text-center mb-5"
@@ -13,13 +13,17 @@ import productionGif from "@/assets/images/production-process.gif";
     >
       ПРОИЗВОДСТВО
     </h2>
-    <div class="max-w-[1152px] mx-auto flex gap-[81px] items-start">
+    <div
+      class="max-w-[1152px] mx-auto flex flex-col-reverse md:flex-row gap-[81px] items-start"
+    >
       <!-- {{ block_2 }} Левая часть: текст -->
       <div class="flex-1 flex flex-col gap-[30px]">
         <!-- {{ block_2_1 }} Флаг и подпись -->
-        <div class="flex items-center gap-3">
+        <div
+          class="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start"
+        >
           <img :src="spainFlag" alt="Испания" class="w-[49px] h-[37px]" />
-          <div>
+          <div class="text-center sm:text-left">
             <span class="text-[#72C95E] font-bold">
               Город Реус, провинция Таррагона, Испания
             </span>
@@ -30,7 +34,7 @@ import productionGif from "@/assets/images/production-process.gif";
         </div>
         <!-- {{ block_2_2 }} Текстовые абзацы с акцентами -->
         <div
-          class="flex flex-col gap-[30px] text-white text-base font-normal leading-[1.33] font-evolventa"
+          class="flex flex-col gap-[30px] text-white text-base font-normal leading-[1.33] font-evolventa text-center md:text-left"
         >
           <p>
             Тщательно продуманный процесс производства в сочетании с
@@ -75,7 +79,7 @@ import productionGif from "@/assets/images/production-process.gif";
       </div>
       <!-- {{ block_3 }} Правая часть: фото производства -->
       <div
-        class="w-[314px] h-[526px] border border-[#72C95E] rounded-md overflow-hidden flex-shrink-0"
+        class="w-[314px] h-[526px] border border-[#72C95E] rounded-md overflow-hidden flex-shrink-0 mx-auto"
       >
         <video
           autoplay
