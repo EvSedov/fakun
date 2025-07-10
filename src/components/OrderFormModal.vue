@@ -33,7 +33,7 @@
     </transition>
 
     <!-- Контейнер для содержимого модального окна -->
-    <div class="p-3 relative">
+    <div class="p-3 relative mt-10">
       <button
         @click="closeModal"
         class="absolute top-[-20px] right-[-20px] m-4 w-10 h-10 flex items-center justify-center rounded-full border border-white/50 z-55 bg-gray-700 hover:bg-gray-900 cursor-pointer"

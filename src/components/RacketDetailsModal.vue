@@ -79,7 +79,7 @@ onUnmounted(() => {
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
     @click.self="closeModal"
   >
-    <div class="p-3 relative">
+    <div class="p-3 relative mt-10">
       <!-- Кнопка закрытия -->
       <button
         class="absolute top-0.5 right-0.5 text-white w-8 h-8 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-900 transition-colors z-55 border-white border-2 cursor-pointer"
