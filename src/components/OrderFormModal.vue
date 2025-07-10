@@ -1,10 +1,9 @@
 <template>
-  <!-- {{ edit_1 }} Добавляем v-if для управления видимостью модального окна -->
   <div
     v-if="isVisible"
-    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 h-[100vh]"
+    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 px-2"
   >
-    <!-- {{ edit_1 }} Контейнер для уведомлений -->
+    <!-- Контейнер для уведомлений -->
     <transition name="fade">
       <div
         v-if="showNotification"
@@ -33,9 +32,8 @@
       </div>
     </transition>
 
-    <!-- {{ edit_2 }} Контейнер для содержимого модального окна -->
+    <!-- Контейнер для содержимого модального окна -->
     <div class="p-3 relative">
-      <!-- {{ edit_3 }} Добавляем обработчик клика для кнопки закрытия -->
       <button
         @click="closeModal"
         class="absolute top-[-20px] right-[-20px] m-4 w-10 h-10 flex items-center justify-center rounded-full border border-white/50 z-55 bg-gray-700 hover:bg-gray-900 cursor-pointer"
@@ -56,20 +54,24 @@
       </button>
 
       <div
-        class="bg-[#2A2A2A] rounded-lg p-[40px_60px] flex flex-col items-center gap-5 max-w-[622px] overflow-y-auto max-h-[90vh]"
+        class="bg-[#2A2A2A] rounded-lg p-[10px_8px] md:p-[40px_60px] flex flex-col items-center gap-5 max-w-[622px] overflow-y-auto max-h-[90vh]"
       >
-        <!-- {{ edit_1 }} Заголовок модального окна -->
+        <!-- Заголовок модального окна -->
         <h2 class="text-[#72C95E] text-2xl font-['Prosto_One'] text-center">
           ВАШ ЗАКАЗ
         </h2>
 
-        <!-- {{ edit_2 }} Первая разделительная линия -->
-        <div class="w-[475px] h-0 border-t-2 border-[#72C95E]"></div>
+        <!-- Первая разделительная линия -->
+        <div class="w-[95%] h-0 border-t-2 border-[#72C95E]"></div>
 
-        <!-- {{ edit_1 }} Блок информации о товаре с динамическими данными -->
-        <div v-if="currentRacket" class="flex items-center gap-x-[30px] w-full">
-          <div class="flex items-center gap-x-5">
-            <!-- Изображение ракетки -->
+        <!-- Блок информации о товаре с динамическими данными -->
+        <div
+          v-if="currentRacket"
+          class="flex items-center gap-7.5 w-full flex-wrap relative"
+        >
+          <!-- Изображение и название ракетки-->
+          <div class="flex items-center justify-between gap-x-5">
+            <!-- Изображение ракетки-->
             <div
               class="w-[96px] h-[98px] rounded-lg flex items-center justify-center overflow-hidden bg-white"
             >
@@ -79,66 +81,72 @@
                 class="object-contain w-full h-full"
               />
             </div>
-            <!-- Название товара -->
+            <!-- Название ракетки -->
             <p
               class="text-white text-base font-['Evolventa'] w-[126px] leading-[1.33]"
             >
               {{ racketName }}
             </p>
           </div>
-          <!-- Количество товара -->
+
+          <!-- Количество товара и цена -->
           <div
-            class="flex items-center justify-center w-[63px] h-[21px] gap-x-2"
+            class="flex items-center justify-between h-[21px] gap-10 flex-nowrap mr-10"
           >
-            <button
-              @click="decrementQuantity"
-              class="w-[15px] h-[15px] rounded-full border border-white/50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
+            <!-- Количество товара -->
+            <div
+              class="flex items-center justify-center h-[21px] gap-x-2 flex-nowrap"
             >
-              <svg
-                class="w-[9.9px] h-[1px] text-white"
-                fill="none"
-                viewBox="0 0 10 2"
-                stroke="currentColor"
+              <button
+                @click="decrementQuantity"
+                class="w-[15px] h-[15px] rounded-full border border-white/50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 1h8"
-                />
-              </svg>
-            </button>
-            <span
-              class="text-white text-base font-['Evolventa'] leading-[1.33]"
-              >{{ itemQuantity }}</span
-            >
-            <button
-              @click="incrementQuantity"
-              class="w-[15px] h-[15px] rounded-full border border-white/50 border-opacity-50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
-            >
-              <svg
-                class="w-[9px] h-[9px] text-white"
-                fill="none"
-                viewBox="0 0 10 10"
-                stroke="currentColor"
+                <svg
+                  class="w-[9.9px] h-[1px] text-white"
+                  fill="none"
+                  viewBox="0 0 10 2"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 1h8"
+                  />
+                </svg>
+              </button>
+              <span
+                class="text-white text-base font-['Evolventa'] leading-[1.33]"
+                >{{ itemQuantity }}</span
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 1v8M1 5h8"
-                />
-              </svg>
-            </button>
+              <button
+                @click="incrementQuantity"
+                class="w-[15px] h-[15px] rounded-full border border-white/50 border-opacity-50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
+              >
+                <svg
+                  class="w-[9px] h-[9px] text-white"
+                  fill="none"
+                  viewBox="0 0 10 10"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 1v8M1 5h8"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- Цена товара -->
+            <p class="text-white text-base font-['Evolventa'] leading-[1.33]">
+              {{ racketPrice }}
+            </p>
           </div>
-          <!-- Цена товара -->
-          <p class="text-white text-base font-['Evolventa'] leading-[1.33]">
-            {{ racketPrice }}
-          </p>
           <!-- Кнопка удаления товара -->
           <button
             @click="removeItem"
-            class="w-[28.28px] h-[28.28px] rounded-full border border-white border-opacity-50 flex items-center justify-center cursor-pointer"
+            class="w-[28.28px] h-[28.28px] rounded-full border border-white border-opacity-50 flex items-center justify-center cursor-pointer absolute top-10 right-0"
           >
             <svg
               class="w-[8.49px] h-[8.49px] text-white"
@@ -161,7 +169,7 @@
         </div>
 
         <!-- {{ edit_1 }} Вторая разделительная линия -->
-        <div class="w-[475px] h-0 border-t-2 border-[#72C95E]"></div>
+        <div class="w-[95%] h-0 border-t-2 border-[#72C95E]"></div>
 
         <!-- {{ edit_2 }} Итоговая сумма заказа -->
         <p
