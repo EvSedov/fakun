@@ -83,7 +83,7 @@
           </a>
           <div class="flex gap-2 text-center md:text-left">
             <a
-              href="https://wa.me/79932811265"
+              href="https://wa.me/34636063866"
               target="_blank"
               class="flex items-center"
             >
@@ -94,7 +94,7 @@
               />
             </a>
             <a
-              href="https://t.me/PadelFakun"
+              href="http://t.me/jordi_gonzales2024"
               target="_blank"
               class="flex items-center"
             >
