@@ -4,6 +4,7 @@
   >
     <!-- Фоновое видео -->
     <video
+      ref="video"
       autoplay
       loop
       muted
@@ -58,8 +59,59 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
 import Header from "./Header.vue";
-// Script for HeroSection component
+
+const video = ref<HTMLVideoElement | null>(null);
+const STORAGE_KEY = "hero-video-time";
+
+// Функция безопасного автоплея
+function tryPlay() {
+  const playPromise = video.value?.play();
+  if (playPromise !== undefined) {
+    playPromise.catch((error) => {
+      console.warn("Автоплей заблокирован", error);
+    });
+  }
+}
+
+// Восстановить время из localStorage
+onMounted(() => {
+  const savedTime = localStorage.getItem(STORAGE_KEY);
+  if (savedTime && video.value) {
+    video.value.currentTime = parseFloat(savedTime);
+  }
+
+  // Запуск при первом клике или таче
+  const handleFirstInteraction = () => {
+    tryPlay();
+    document.removeEventListener("click", handleFirstInteraction);
+    document.removeEventListener("touchstart", handleFirstInteraction);
+  };
+
+  document.addEventListener("click", handleFirstInteraction);
+  document.addEventListener("touchstart", handleFirstInteraction);
+
+  // Сохранение времени при скрытии вкладки
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden" && video.value) {
+      localStorage.setItem(STORAGE_KEY, video.value.currentTime.toString());
+    } else if (video.value) {
+      const savedTime = localStorage.getItem(STORAGE_KEY);
+      if (savedTime) {
+        video.value.currentTime = parseFloat(savedTime);
+        tryPlay();
+      }
+    }
+  });
+
+  // Также сохраним при паузе
+  if (video.value) {
+    video.value.addEventListener("pause", () => {
+      localStorage.setItem(STORAGE_KEY, video.value!.currentTime.toString());
+    });
+  }
+});
 </script>
 
 <style scoped>
