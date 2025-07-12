@@ -65,7 +65,7 @@ export const ALL_RACKET_COLORS: Record<string, IRacketColorOption> = {
 const racketX31 = {
   id: "racket-x31",
   name: "FAKUN X31",
-  price: "35 000",
+  price: "34 990",
   colorOptions: {
     black: {
       color: ALL_RACKET_COLORS.black,
@@ -277,7 +277,7 @@ const racketAstaroth = {
     },
   },
   selectedColorKey: "black",
-  price: "35 000",
+  price: "34 990",
   description:
     "Ракетка FAKUN ASTAROTH представляет собой высокотехнологичное решение для игроков высокого уровня, стремящихся к максимальной эффективности в игре, благодаря инновационным материалам и продуманной конструкции.",
   characteristics: [
@@ -334,7 +334,7 @@ const racketJericho = {
     },
   },
   selectedColorKey: "black",
-  price: "31 500",
+  price: "32 990",
   description: `Ракетка FAKUN JERICHO - это результат многолетнего
                     развития модели, которая с 2012 года остается верной
                     своему принципу быть "ракеткой, которая нравится
