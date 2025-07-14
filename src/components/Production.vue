@@ -1,6 +1,63 @@
-<script setup>
+<script lang="ts" setup>
+import { onMounted, ref } from "vue";
 import spainFlag from "@/assets/images/flag-spain.svg";
-import productionGif from "@/assets/images/production-process.gif";
+
+const videoProduction = ref<HTMLVideoElement | null>(null);
+const STORAGE_KEY = "production-video-time";
+
+// Функция безопасного автоплея
+function tryPlay() {
+  const playPromise = videoProduction.value?.play();
+  if (playPromise !== undefined) {
+    playPromise.catch((error) => {
+      console.warn("Автоплей заблокирован", error);
+    });
+  }
+}
+
+// Восстановить время из localStorage
+onMounted(() => {
+  const savedTime = localStorage.getItem(STORAGE_KEY);
+  if (savedTime && videoProduction.value) {
+    videoProduction.value.currentTime = parseFloat(savedTime);
+  }
+
+  // Запуск при первом клике или таче
+  const handleFirstInteraction = () => {
+    tryPlay();
+    document.removeEventListener("click", handleFirstInteraction);
+    document.removeEventListener("touchstart", handleFirstInteraction);
+  };
+
+  document.addEventListener("click", handleFirstInteraction);
+  document.addEventListener("touchstart", handleFirstInteraction);
+
+  // Сохранение времени при скрытии вкладки
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden" && videoProduction.value) {
+      localStorage.setItem(
+        STORAGE_KEY,
+        videoProduction.value.currentTime.toString()
+      );
+    } else if (videoProduction.value) {
+      const savedTime = localStorage.getItem(STORAGE_KEY);
+      if (savedTime) {
+        videoProduction.value.currentTime = parseFloat(savedTime);
+        tryPlay();
+      }
+    }
+  });
+
+  // Также сохраним при паузе
+  if (videoProduction.value) {
+    videoProduction.value.addEventListener("pause", () => {
+      localStorage.setItem(
+        STORAGE_KEY,
+        videoProduction.value!.currentTime.toString()
+      );
+    });
+  }
+});
 </script>
 
 <template>
@@ -82,6 +139,7 @@ import productionGif from "@/assets/images/production-process.gif";
         class="w-[314px] h-[526px] border border-[#72C95E] rounded-md overflow-hidden flex-shrink-0 mx-auto"
       >
         <video
+          ref="videoProduction"
           autoplay
           loop
           muted
