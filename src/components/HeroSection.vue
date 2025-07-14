@@ -96,12 +96,16 @@ onMounted(() => {
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden" && video.value) {
       localStorage.setItem(STORAGE_KEY, video.value.currentTime.toString());
-    } else if (video.value) {
+    }
+
+    if (document.visibilityState === "visible" && video.value) {
       const savedTime = localStorage.getItem(STORAGE_KEY);
+
       if (savedTime) {
         video.value.currentTime = parseFloat(savedTime);
-        tryPlay();
       }
+
+      tryPlay();
     }
   });
 
