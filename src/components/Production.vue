@@ -144,6 +144,7 @@ onMounted(() => {
       >
         <video
           ref="videoProduction"
+          poster="/images/poster-production-video.png"
           autoplay
           loop
           muted

@@ -5,6 +5,7 @@
     <!-- Фоновое видео -->
     <video
       ref="video"
+      poster="/images/poster-hero-video.png"
       autoplay
       loop
       muted
