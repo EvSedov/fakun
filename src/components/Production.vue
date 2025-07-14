@@ -39,12 +39,16 @@ onMounted(() => {
         STORAGE_KEY,
         videoProduction.value.currentTime.toString()
       );
-    } else if (videoProduction.value) {
+    }
+
+    if (document.visibilityState === "visible" && videoProduction.value) {
       const savedTime = localStorage.getItem(STORAGE_KEY);
+
       if (savedTime) {
         videoProduction.value.currentTime = parseFloat(savedTime);
-        tryPlay();
       }
+
+      tryPlay();
     }
   });
 
