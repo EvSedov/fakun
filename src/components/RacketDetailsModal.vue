@@ -101,7 +101,7 @@ onUnmounted(() => {
         </svg>
       </button>
       <div
-        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1000px] w-full max-h-[90vh] flex flex-col lg:flex-row gap-12.5 px-10 py-15 overflow-y-auto"
+        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1000px] w-full max-h-[80vh] flex flex-col lg:flex-row gap-12.5 px-10 py-15 overflow-y-auto"
       >
         <!-- Левая часть: Изображение ракетки, кнопки, описание -->
         <div

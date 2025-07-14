@@ -54,7 +54,7 @@
       </button>
 
       <div
-        class="bg-[#2A2A2A] rounded-lg p-[10px_8px] md:p-[40px_60px] flex flex-col items-center gap-5 max-w-[622px] overflow-y-auto max-h-[90vh]"
+        class="bg-[#2A2A2A] rounded-lg p-[10px_8px] md:p-[40px_60px] flex flex-col items-center gap-5 max-w-[622px] overflow-y-auto max-h-[80vh]"
       >
         <!-- Заголовок модального окна -->
         <h2 class="text-[#72C95E] text-2xl font-['Prosto_One'] text-center">
