@@ -101,11 +101,11 @@ onUnmounted(() => {
         </svg>
       </button>
       <div
-        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1000px] w-full max-h-[80vh] flex flex-col lg:flex-row gap-12.5 px-10 py-15 overflow-y-auto"
+        class="bg-[#2A2A2A] rounded-[10px] shadow-lg max-w-[1080px] w-full max-h-[80vh] xl:max-h-[90vh] flex flex-col lg:flex-row gap-12.5 px-10 py-15 overflow-y-auto"
       >
         <!-- Левая часть: Изображение ракетки, кнопки, описание -->
         <div
-          class="max-w-[398px] flex flex-col items-center justify-start min-h-0 mx-auto shrink-0"
+          class="max-w-[398px] w-full flex flex-col items-center justify-start min-h-0 mx-auto shrink-0"
         >
           <div class="lg:hidden w-full mb-6">
             <h2 class="text-[#72C95E] text-[20px] mb-4">
@@ -180,7 +180,9 @@ onUnmounted(() => {
         </div>
 
         <!-- Правая часть: Детали и характеристики -->
-        <div class="max-w-[398px] lg:w-full text-white min-h-0 mx-auto">
+        <div
+          class="max-w-[398px] lg:max-w-[590px] w-full text-white min-h-0 mx-auto"
+        >
           <div class="hidden lg:block">
             <div class="flex justify-between items-center mb-2.5 flex-wrap">
               <h2 class="text-[#72C95E] text-[20px] mb-2.5 sm:mb-0">
