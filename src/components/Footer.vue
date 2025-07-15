@@ -112,10 +112,13 @@
         <div
           class="flex flex-col items-center md:items-start text-center md:text-left"
         >
-          <a href="mailto:padelfakun@yandex.ru" class="m-0 p-0">
-            <span
-              class="text-[14px] text-white font-evolventa hover:text-[#72C95E]"
-              >Email: padelfakun@yandex.ru</span
+          <a
+            href="mailto:padelfakun@yandex.ru"
+            class="m-0 p-0 text-white text-[14px]"
+          >
+            Email:
+            <span class="text-[#72C95E] font-evolventa hover:text-white"
+              >padelfakun@yandex.ru</span
             >
           </a>
           <span class="text-[14px] text-white font-evolventa"
