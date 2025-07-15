@@ -146,7 +146,7 @@
           <!-- Кнопка удаления товара -->
           <button
             @click="removeItem"
-            class="w-[28.28px] h-[28.28px] rounded-full border border-white border-opacity-50 flex items-center justify-center cursor-pointer absolute top-10 right-0"
+            class="w-[28.28px] h-[28.28px] rounded-full border border-white border-opacity-50 flex items-center justify-center cursor-pointer absolute top-10 right-0 hover:bg-white/50"
           >
             <svg
               class="w-[8.49px] h-[8.49px] text-white"
