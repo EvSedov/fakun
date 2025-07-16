@@ -33,10 +33,10 @@
     </transition>
 
     <!-- Контейнер для содержимого модального окна -->
-    <div class="p-3 relative mt-10">
+    <div class="p-3 relative mt-10 lg:mt-0">
       <button
         @click="closeModal"
-        class="absolute top-[-18px] right-[-18px] m-4 w-7.5 h-7.5 flex items-center justify-center rounded-full border-2 border-white/50 z-55 bg-gray-700 hover:bg-gray-400 cursor-pointer transition-colors"
+        class="absolute top-[-18px] right-[-18px] m-4 w-7.5 h-7.5 flex items-center justify-center rounded-full border-2 border-white/50 z-55 hover:bg-white/20 cursor-pointer transition-colors"
       >
         <svg
           class="w-6 h-6 text-white/50"
@@ -54,7 +54,7 @@
       </button>
 
       <div
-        class="bg-[#2A2A2A] rounded-lg p-[10px_8px] md:p-[40px_60px] flex flex-col items-center gap-5 max-w-[622px] overflow-y-auto max-h-[80vh]"
+        class="bg-[#2A2A2A] rounded-lg p-[40px_60px] flex flex-col items-center gap-5 max-w-[622px] overflow-y-auto max-h-[80vh] lg:max-h-[90vh]"
       >
         <!-- Заголовок модального окна -->
         <h2 class="text-[#72C95E] text-2xl font-['Prosto_One'] text-center">
