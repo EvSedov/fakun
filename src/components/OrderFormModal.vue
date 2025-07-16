@@ -62,7 +62,7 @@
         </h2>
 
         <!-- Первая разделительная линия -->
-        <div class="w-[95%] h-0 border-t-2 border-[#72C95E]"></div>
+        <div class="w-full h-0 border-t-2 border-[#72C95E]"></div>
 
         <!-- Блок информации о товаре с динамическими данными -->
         <div
@@ -169,7 +169,7 @@
         </div>
 
         <!-- {{ edit_1 }} Вторая разделительная линия -->
-        <div class="w-[95%] h-0 border-t-2 border-[#72C95E]"></div>
+        <div class="w-full h-0 border-t-2 border-[#72C95E]"></div>
 
         <!-- {{ edit_2 }} Итоговая сумма заказа -->
         <p
@@ -194,7 +194,7 @@
                 type="text"
                 id="name"
                 placeholder="Иван"
-                class="bg-transparent border rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                class="bg-transparent border p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
                 :class="userNameError ? 'border-red-500' : 'border-[#72C95E]'"
                 @input="validateUserName"
                 @blur="validateUserName"
@@ -216,7 +216,7 @@
                 type="tel"
                 id="phone"
                 placeholder="+7 (999) 999-99-99"
-                class="bg-transparent border rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                class="bg-transparent border p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
                 :class="userPhoneError ? 'border-red-500' : 'border-[#72C95E]'"
                 @input="validateUserPhone"
                 @blur="validateUserPhone"
@@ -238,7 +238,7 @@
                 type="email"
                 id="email"
                 placeholder="example@gmail.com"
-                class="bg-transparent border rounded-lg p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
+                class="bg-transparent border p-[20px_15px] text-white text-sm font-['Evolventa'] leading-[1.33] placeholder:text-white/50 focus:outline-none"
                 :class="userEmailError ? 'border-red-500' : 'border-[#72C95E]'"
                 @input="validateUserEmail"
                 @blur="validateUserEmail"
