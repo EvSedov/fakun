@@ -66,10 +66,10 @@ onMounted(() => {
 
 <template>
   <!-- {{ block_1 }} Контейнер секции -->
-  <section id="production" class="bg-[#2A2A2A] py-7.5 px-4">
+  <section id="production" class="bg-[#2A2A2A] py-10 px-4">
     <!-- Заголовок -->
     <h2
-      class="font-prosto text-[24px] text-[#72C95E] text-center mb-5"
+      class="font-prosto text-2xl text-[#72C95E] text-center mb-10"
       style="line-height: 1.23"
     >
       ПРОИЗВОДСТВО

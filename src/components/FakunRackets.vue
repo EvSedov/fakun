@@ -1,7 +1,7 @@
 <template>
-  <section id="products" class="relative py-16 px-4 bg-[#181818]">
+  <section id="products" class="relative py-10 px-4 bg-[#181818]">
     <div class="rackets-content mx-auto">
-      <h2 class="text-center text-[24px] font-prosto text-[#72C95E] mb-10">
+      <h2 class="text-center text-2xl font-prosto text-[#72C95E] mb-10">
         РАКЕТКИ
       </h2>
 
