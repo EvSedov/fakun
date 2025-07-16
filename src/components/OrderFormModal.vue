@@ -36,20 +36,20 @@
     <div class="p-3 relative mt-10">
       <button
         @click="closeModal"
-        class="absolute top-[-20px] right-[-20px] m-4 w-10 h-10 flex items-center justify-center rounded-full border border-white/50 z-55 bg-gray-700 hover:bg-gray-900 cursor-pointer"
+        class="absolute top-[-18px] right-[-18px] m-4 w-7.5 h-7.5 flex items-center justify-center rounded-full border-2 border-white/50 z-55 bg-gray-700 hover:bg-gray-400 cursor-pointer transition-colors"
       >
         <svg
-          class="w-4 h-4 text-white"
+          class="w-6 h-6 text-white/50"
           fill="none"
-          viewBox="0 0 24 24"
           stroke="currentColor"
+          viewBox="0 0 24 24"
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             d="M6 18L18 6M6 6l12 12"
-          />
+          ></path>
         </svg>
       </button>
 
@@ -99,10 +99,10 @@
             >
               <button
                 @click="decrementQuantity"
-                class="w-[15px] h-[15px] rounded-full border border-white/50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
+                class="w-[15px] h-[15px] rounded-full border border-white/50 flex items-center justify-center hover:bg-white/20 cursor-pointer"
               >
                 <svg
-                  class="w-[9.9px] h-[1px] text-white"
+                  class="w-2 h-0.5 text-white/50"
                   fill="none"
                   viewBox="0 0 10 2"
                   stroke="currentColor"
@@ -110,7 +110,7 @@
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    stroke-width="2"
+                    stroke-width="1.5"
                     d="M1 1h8"
                   />
                 </svg>
@@ -121,10 +121,10 @@
               >
               <button
                 @click="incrementQuantity"
-                class="w-[15px] h-[15px] rounded-full border border-white/50 border-opacity-50 flex items-center justify-center hover:bg-white/50 cursor-pointer"
+                class="w-[15px] h-[15px] rounded-full border border-white/50 border-opacity-50 flex items-center justify-center hover:bg-white/20 cursor-pointer"
               >
                 <svg
-                  class="w-[9px] h-[9px] text-white"
+                  class="w-2 h-2 text-white/50"
                   fill="none"
                   viewBox="0 0 10 10"
                   stroke="currentColor"
@@ -132,7 +132,7 @@
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    stroke-width="2"
+                    stroke-width="1.5"
                     d="M5 1v8M1 5h8"
                   />
                 </svg>
@@ -146,10 +146,10 @@
           <!-- Кнопка удаления товара -->
           <button
             @click="removeItem"
-            class="w-[28.28px] h-[28.28px] rounded-full border border-white border-opacity-50 flex items-center justify-center cursor-pointer absolute top-10 right-0 hover:bg-white/50"
+            class="w-5 h-5 rounded-full border border-white/50 border-opacity-50 flex items-center justify-center cursor-pointer absolute top-10 right-0 hover:bg-white/20"
           >
             <svg
-              class="w-[8.49px] h-[8.49px] text-white"
+              class="w-2 h-2 text-white/50"
               fill="none"
               viewBox="0 0 10 10"
               stroke="currentColor"
@@ -157,7 +157,7 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                stroke-width="1.5"
                 d="M1 9l8-8M1 1l8 8"
               />
             </svg>
