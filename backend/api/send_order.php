@@ -1,8 +1,6 @@
 <?php
-// {{ edit_1 }} Импортируем классы PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 // Автозагрузка классов Composer
 require '../vendor/autoload.php';
 
@@ -54,7 +52,6 @@ if (empty($userPhone)) {
     $patternPlus7Flexible = '^\+7\s*(\(\d{3}\)|\d{3})\s*\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$';
 
     // Объединяем оба паттерна
-    // (?:\d{11}|...) позволяет использовать обе маски без создания захватывающей группы для всего выражения.
     $combinedPhoneRegex = '/(?:' . $pattern11Digits . '|' . $patternPlus7Flexible . ')/';
 
     if (!preg_match($combinedPhoneRegex, $userPhone)) {
@@ -75,22 +72,22 @@ if (!empty($errors)) {
     exit();
 }
 
-$mail = new PHPMailer(true); // {{ edit_3 }} Создаем новый экземпляр PHPMailer
+$mail = new PHPMailer(true);
 
 try {
-    // {{ edit_4 }} Настройки SMTP-сервера
+    // Настройки SMTP-сервера
     $mail->isSMTP(); // Указываем, что будем использовать SMTP
-    $mail->Host = 'smtp.ethereal.email'; // {{ edit_5 }} SMTP-хост вашего почтового провайдера (например, smtp.yandex.ru для Яндекса)
+    $mail->Host = ''; // SMTP-хост вашего почтового провайдера (например, smtp.yandex.ru для Яндекса)
     $mail->SMTPAuth = true; // Включаем SMTP-аутентификацию
-    $mail->Username = 'nella.treutel91@ethereal.email'; // {{ edit_6 }} Ваш email, с которого будут отправляться письма
-    $mail->Password = 'vEQuZ8pvgH23RXyg2Q'; // {{ edit_7 }} Ваш пароль или пароль приложения для SMTP
+    $mail->Username = ''; // Ваш email, с которого будут отправляться письма
+    $mail->Password = ''; // Ваш пароль или пароль приложения для SMTP
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Включаем SSL/TLS шифрование (PHPMailer::ENCRYPTION_STARTTLS или PHPMailer::ENCRYPTION_SMTPS)
-    $mail->Port = 587; // {{ edit_8 }} Порт SMTP (например, 587 для STARTTLS, 465 для SMTPS)
-    $mail->CharSet = 'UTF-8'; // Устанавливаем кодировку
+    $mail->Port = 465; // Порт SMTP (например, 587 для STARTTLS, 465 для SMTPS)
+    $mail->CharSet = 'UTF-8';
 
     // Получатели
-    $mail->setFrom('padelfakun@yandex.ru', 'Fakun Website'); // {{ edit_9 }} От кого будут письма
-    $mail->addAddress('nella.treutel91@ethereal.email', 'Администратор Fakun'); // {{ edit_10 }} Куда будут приходить письма
+    $mail->setFrom('padelfakun@yandex.ru', 'Fakun Website'); // От кого будут письма
+    $mail->addAddress('padelfakun@yandex.ru', 'Администратор Fakun'); // Куда будут приходить письма
 
     // Формирование темы и тела письма
     $subject = "Новый заказ с сайта Fakun";
@@ -111,9 +108,9 @@ try {
     $mail->AltBody = strip_tags($message); // Альтернативный текст для клиентов, не поддерживающих HTML
 
     $mail->send();
-    echo json_encode(['success' => true, 'message' => 'Order successfully sent!']);
+    echo json_encode(['success' => true, 'message' => 'Письмо успешно отправлено!']);
 } catch (Exception $e) {
-    error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
-    echo json_encode(['success' => false, 'message' => "Failed to send order. Mailer Error: {$mail->ErrorInfo}"]);
+    error_log("Не удалось отправить письмо. Ошибка почтовой программы: {$mail->ErrorInfo}");
+    echo json_encode(['success' => false, 'message' => "Не удалось отправить письмо. Ошибка почтовой программы: {$mail->ErrorInfo}"]);
 }
 ?>
