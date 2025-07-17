@@ -82,7 +82,7 @@ onUnmounted(() => {
     <div class="p-3 relative mt-10">
       <!-- Кнопка закрытия -->
       <button
-        class="absolute top-[-4px] right-[-4px] text-white/50 w-7.5 h-7.5 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors z-55 border-white/50 border-2 cursor-pointer"
+        class="absolute top-[-4px] right-0 text-[#9E9E9E] bg-[#272727] w-7.5 h-7.5 rounded-full flex items-center justify-center hover:text-white hover:border-white transition-colors z-55 border-[#9E9E9E] border-2 cursor-pointer"
         @click="closeModal"
       >
         <svg

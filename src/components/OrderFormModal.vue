@@ -35,14 +35,15 @@
     <!-- Контейнер для содержимого модального окна -->
     <div class="p-3 relative mt-10 lg:mt-0">
       <button
+        class="absolute top-[-4px] right-0 text-[#9E9E9E] bg-[#272727] w-7.5 h-7.5 rounded-full flex items-center justify-center hover:text-white hover:border-white transition-colors z-55 border-[#9E9E9E] border-2 cursor-pointer"
         @click="closeModal"
-        class="absolute top-[-18px] right-[-18px] m-4 w-7.5 h-7.5 flex items-center justify-center rounded-full border-2 border-white/50 z-55 hover:bg-white/20 cursor-pointer transition-colors"
       >
         <svg
-          class="w-6 h-6 text-white/50"
+          class="w-6 h-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             stroke-linecap="round"
