@@ -272,7 +272,6 @@
               for="checkbox"
               class="relative flex items-center justify-center min-w-5 h-5 border border-[#72C95E] rounded-[4px] cursor-pointer"
             >
-              <!-- {{ edit_2 }} Иконка чекбокса, которая появится при checked -->
               <img
                 v-if="checked"
                 src="@/assets/images/checkbox_check.svg"
@@ -283,7 +282,13 @@
             <p class="text-white text-xs font-['Evolventa'] leading-[1.33]">
               Нажимая на кнопку, я даю своё согласие на обработку персональных
               данных и принимаю условия
-              <a href="#" class="text-[#72C95E] underline">соглашения</a>
+              <a
+                :href="PDFfile"
+                target="_blank"
+                download="Соглашение_на_обработку_персональных_данных.pdf"
+                class="text-[#72C95E] underline"
+                >соглашения</a
+              >
             </p>
           </div>
 
@@ -316,6 +321,7 @@ import {
   type PropType,
 } from "vue";
 import { type IRacket, ALL_RACKET_COLORS } from "@/assets/data";
+import PDFfile from "/docs/Соглашение_на_обработку_персональных_данных.pdf";
 
 const props = defineProps({
   isVisible: {
