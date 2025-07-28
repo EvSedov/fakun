@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 // Автозагрузка классов Composer
-require '../vendor/autoload.php';
+require '/var/www/u3208207/data/fakun_backend/vendor/autoload.php';
 
 header("Access-Control-Allow-Origin: *"); // В реальном приложении замените * на домен вашего фронтенда
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
@@ -77,11 +77,11 @@ $mail = new PHPMailer(true);
 try {
     // Настройки SMTP-сервера
     $mail->isSMTP(); // Указываем, что будем использовать SMTP
-    $mail->Host = ''; // SMTP-хост вашего почтового провайдера (например, smtp.yandex.ru для Яндекса)
+    $mail->Host = 'smtp.yandex.ru'; // SMTP-хост вашего почтового провайдера (например, smtp.yandex.ru для Яндекса)
     $mail->SMTPAuth = true; // Включаем SMTP-аутентификацию
-    $mail->Username = ''; // Ваш email, с которого будут отправляться письма
-    $mail->Password = ''; // Ваш пароль или пароль приложения для SMTP
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Включаем SSL/TLS шифрование (PHPMailer::ENCRYPTION_STARTTLS или PHPMailer::ENCRYPTION_SMTPS)
+    $mail->Username = 'padelfakun'; // Ваш email, с которого будут отправляться письма
+    $mail->Password = 'exnhclqxwfxbmqyh'; // Ваш пароль или пароль приложения для SMTP
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Включаем SSL/TLS шифрование (PHPMailer::ENCRYPTION_STARTTLS или PHPMailer::ENCRYPTION_SMTPS)
     $mail->Port = 465; // Порт SMTP (например, 587 для STARTTLS, 465 для SMTPS)
     $mail->CharSet = 'UTF-8';
 

@@ -536,7 +536,7 @@ const submitOrder = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost/backend/api/send_order.php", // нужно настроить отправку почты на сервер со скриптом, заменить URL на реальный
+      "/api/send_order.php", // нужно настроить отправку почты на сервер со скриптом, заменить URL на реальный
       {
         method: "POST",
         headers: {

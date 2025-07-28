@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Правило для вашего API
+  # Перенаправляет все запросы, начинающиеся с /api/, на ваш api.php
+  # Если ваш фронтенд обращается к /api/send_order.php, то это правило будет ловить /api/
+  RewriteRule ^api/(.*)$ api.php [L]
+
+  # Правило для Vue Router (History Mode)
+  # Перенаправляет все запросы, которые не являются файлами или папками, на index.html
+  RewriteRule ^(?!api\.php|assets/|css/|js/|images/|fonts/|favicons/|video/|docs/).* index.html [L]
+</IfModule> 
